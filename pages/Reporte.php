@@ -6,7 +6,7 @@
 
 
 <div class="box-header with-border">
-        <h1 class="" style="text-align:center; color:black;">Comparativos Costo Beneficio</h1>
+        <h1 class="" style="text-align:center; color:black;">Comparativo entre Periodos</h1>
     </div>
 
 <div class="box box-primary"> 

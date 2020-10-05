@@ -15,7 +15,6 @@ function getfulldate() {
             body: formdata
         }).then(response => response.json())
         .then(function refill(data) {
-            console.log(data);
             fecha2.value = data[0];
             fecha3.value = data[1];
             fecha4.value = data[2];
