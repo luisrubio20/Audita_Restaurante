@@ -1,0 +1,108 @@
+
+
+.consultar{
+
+position: relative;
+left: 5px;
+top: 0px;
+
+}
+
+
+.limpiar{
+
+    position: relative;
+    left: 9px;
+    top: 0px;
+    
+    }
+
+    @media only screen and (max-width: 414px)
+    {
+     
+        .retorno{
+    
+            position: relative;
+            left: 296px;
+            top: 0px;
+     
+        
+        }
+        .consultar{
+            left: -101px;
+            top: 62px;
+            }
+    }
+
+
+
+
+    @media only screen and (max-width: 411px)
+    {
+     
+        .retorno{
+    
+            position: relative;
+            left: 294px;
+            top: 0px;
+     
+        
+        }
+        .consultar{
+        left: -102px;
+    top: 62px;
+        }
+    }
+
+
+    @media only screen and (max-width:375px)
+    {
+     
+        .retorno{
+    
+            position: relative;
+            left: 256px;
+            top: 0px;
+            
+        }
+        .consultar{
+            left: -1px;
+        top: 0px;
+            }
+    }
+
+    @media only screen and (max-width:360px)
+    {
+     
+        .retorno{
+    
+            position: relative;
+            left: 242px;
+            top: 0px;
+     
+        
+        }
+
+        .consultar{
+            left: -1px;
+        top: 0px;
+            }
+    }
+
+@media only screen and (max-width:320px)
+{
+
+
+    .retorno{
+
+        position: relative;
+        left: 202px;
+        top: 0px;
+ 
+    
+    }
+    .consultar{
+        left: -1px;
+    top: 0px;
+        }
+}

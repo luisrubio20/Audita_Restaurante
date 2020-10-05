@@ -1,0 +1,30 @@
+.ultimo{
+
+    position: relative;
+ 
+    left: -250px;
+    top: 295px;
+
+}
+.ultima{
+
+    position: relative;
+    left: -400px;
+    top: 257px;
+
+}
+.antiguedad{
+    position: relative;
+ 
+    top: 36px;
+    left: 201px;
+    z-index: 2;
+
+}
+.imagen{
+
+    position: relative;
+    top: -43px;
+    left: 32px;
+}
+

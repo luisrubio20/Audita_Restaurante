@@ -1,0 +1,21 @@
+.ultimo{
+
+    position: relative;
+    left: 135px;
+    top: 62px;
+}
+.ultima{
+
+    position: relative;
+    left: 0px;
+    top: 0px;
+
+}
+.antiguedad{
+    position: relative;
+ 
+    top: 36px;
+    left: 201px;
+    z-index: 2;
+
+}

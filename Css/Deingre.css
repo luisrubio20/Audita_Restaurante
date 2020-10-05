@@ -1,0 +1,38 @@
+.LCODIGO{
+    position: relative;
+    left: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    }
+    .LCLIENTE{
+        position: relative;
+        left: 11px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    
+        }
+    .LFACTURA
+    {
+            position: relative;
+            left: 7px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+    
+    }
+    
+    .CODIGO{
+        position: relative;
+        left:6px;
+    
+        
+        }
+        .CLIENTE{
+            position: relative;
+            left: 16px;
+            }
+        .FACTURA
+        {
+                position: relative;
+                left: 10px;
+            
+        }

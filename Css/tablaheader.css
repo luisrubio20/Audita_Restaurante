@@ -1,0 +1,17 @@
+
+.contents {
+ 
+   height: 300px;
+    overflow: auto;
+  }
+  
+  table {
+    position: relative;
+  }
+  
+  th {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    border-top: 20px !important;
+  }

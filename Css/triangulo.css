@@ -1,0 +1,23 @@
+.rectangulo {
+  
+  /* width: 1110px; */
+    height: 52px;
+    position: relative;
+    left: 0px;
+    top: 72px;
+
+/*    border: 3px solid #555;
+    background: #428bca; */
+}
+.titulo
+{
+    background: white;
+
+    /*background-color: aliceblue;*/
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}

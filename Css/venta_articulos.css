@@ -1,0 +1,174 @@
+
+    .LCLIENTE{
+        position: relative;
+        left: 0px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    
+        }
+    .LFACTURA
+    {
+            position: relative;
+            left: 0px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+    
+    }
+
+
+    @media only screen and (max-width: 414px)
+    {
+  
+     
+     .LFACTURA
+     {
+             position: relative;
+             left: 0px;
+     }
+    
+         
+     .FACTURA
+     {
+          position: relative;
+             left: 29px;
+             top: 0px;        
+     }
+    }
+
+
+
+
+
+
+
+
+
+    @media only screen and (max-width: 411px)
+    {
+  
+     .LCLIENTE{
+         position: relative;
+         left: -245px;
+         top: 33px;
+         }
+     .LFACTURA
+     {
+             position: relative;
+             left: 0px;
+     }
+     .CLIENTE{
+         position: relative;
+         left: 86px;
+         top: -3px;
+     }
+         
+     .FACTURA
+     {
+          position: relative;
+             left: 29px;
+             top: 0px;        
+     }
+    }
+
+    @media only screen and (max-width: 375px)
+    {
+  
+     .LCLIENTE{
+         position: relative;
+         left: 1px;
+         top: -1px;
+          
+         }
+     .LFACTURA
+     {
+             position: relative;
+             left: 0px;
+     }
+     .CLIENTE{
+         position: relative;
+         left: 5px;
+         top: -1px;
+     }
+         
+     .FACTURA
+     {
+          position: relative;
+             left: 29px;
+             top: 0px;        
+     }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @media only screen and (max-width: 360px)
+    {
+  
+     .LCLIENTE{
+         position: relative;
+         left: 1px;
+         top: -1px;
+          
+         }
+     .LFACTURA
+     {
+             position: relative;
+             left: 0px;
+     }
+     .CLIENTE{
+         position: relative;
+         left: 5px;
+         top: -1px;
+     }
+         
+     .FACTURA
+     {
+          position: relative;
+             left: 29px;
+             top: 0px;        
+     }
+    }
+
+
+
+    @media only screen and (max-width: 320px)
+       {
+        h1{
+            font-size: 35px;
+        }
+        .LCLIENTE{
+            position: relative;
+            left: 0px;
+            top: 0px;
+             
+            }
+        .LFACTURA
+        {
+                position: relative;
+                left: 0px;
+        }
+        .CLIENTE{
+            position: relative;
+            left: 87px;
+            top: -35px;
+            }
+        .FACTURA
+        {
+             position: relative;
+                left: 29px;
+                top: 0px;        
+        }
+    }

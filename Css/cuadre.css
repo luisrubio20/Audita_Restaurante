@@ -1,0 +1,39 @@
+.balance{
+
+    font-weight: bold;
+}
+
+.caja{
+background-color: black;
+color: #ffc107;
+  font-weight: bold ; 
+   font-size: 18px;
+  
+
+}
+
+td > a {
+    font-size: 18px;
+}
+
+ .nolink{
+   
+    font-weight: 600;
+    font-size: 18px;
+    color:#0f6d9a;
+}
+td > a:hover{
+   
+   
+    color:#DF7401 ;
+}
+.header{
+    color:#0f6d9a;
+    font-weight: 600;
+}
+
+
+
+   
+    
+

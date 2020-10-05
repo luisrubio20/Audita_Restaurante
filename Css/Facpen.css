@@ -1,0 +1,292 @@
+.LCODIGO{
+position: relative;
+left: 0px;
+font-family: 'Times New Roman', Times, serif;
+font-weight: bold;
+}
+.LCLIENTE{
+    position: relative;
+    left: 11px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+    }
+.LFACTURA
+{
+        position: relative;
+        left: 7px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+
+}
+
+.CODIGO{
+    position: relative;
+    left:6px;
+
+    
+    }
+    .CLIENTE{
+        position: relative;
+        left: 16px;
+        }
+    .FACTURA
+    {
+            position: relative;
+            left: 10px;
+        
+    }
+
+
+
+
+
+
+    @media only screen and (max-width: 450px)
+    {
+    
+        .LCODIGO{
+            position: relative;
+            left: 0px;
+            top:0px ;
+            }
+            .LCLIENTE{
+                position: relative;
+                left: -169px;
+                top: 35px;
+    
+            
+                }
+            .LFACTURA
+            {
+                    position: relative;
+                    left: 69px;
+                    top: -4px;
+            
+            }
+            
+            .CODIGO{
+                position: relative;
+                left: 10px;
+                top: 0px;
+                }
+                .CLIENTE{
+                    position: relative;
+                    left: 78px;
+                    top: -3px;
+                    }
+                .FACTURA
+                {
+                        position: relative;
+                        left: 73px;
+                        top: -3px;
+    
+                }
+            
+    
+    }
+
+
+
+
+    @media only screen and (max-width: 414px)
+    {
+    
+        .LCODIGO{
+            position: relative;
+            left: 0px;
+            top:0px ;
+            }
+            .LCLIENTE{
+                position: relative;
+                left: -169px;
+                top: 35px;
+    
+            
+                }
+            .LFACTURA
+            {
+                    position: relative;
+                    left: -202px;
+                    top: 34px;
+            
+            }
+            
+            .CODIGO{
+                position: relative;
+                left: 10px;
+                top: 0px;
+                }
+                .CLIENTE{
+                    position: relative;
+                    left: 78px;
+                    top: -3px;
+                    }
+                .FACTURA
+                {
+                        position: relative;
+                        left: 78px;
+                        top: -3px;
+    
+                }
+            
+    
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+@media only screen and (max-width: 360px)
+{
+
+    .LCODIGO{
+        position: relative;
+        left: 0px;
+        top:0px ;
+        }
+        .LCLIENTE{
+            position: relative;
+            left: -169px;
+            top: 35px;
+
+        
+            }
+        .LFACTURA
+        {
+                position: relative;
+                left: -204px;
+                top: 31px;
+        
+        }
+        
+        .CODIGO{
+            position: relative;
+            left: 10px;
+            top: 0px;
+            }
+            .CLIENTE{
+                position: relative;
+                left: 78px;
+                top: -3px;
+                }
+            .FACTURA
+            {
+                    position: relative;
+                    left: 78px;
+                    top: -6px;
+
+            }
+        
+
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 320px)
+{
+
+    .LCODIGO{
+        position: relative;
+        left: 0px;
+        top:0px ;
+        }
+        .LCLIENTE{
+            position: relative;
+            left: -169px;
+
+            top: 35px
+
+        
+            }
+        .LFACTURA
+        {
+                position: relative;
+                left: -2px;
+                top: 0px;
+        
+        }
+        
+        .CODIGO{
+            position: relative;
+            left: 10px;
+            top: 0px;
+            }
+            .CLIENTE{
+                position: relative;
+                left: 78px;
+                top: -3px;
+                }
+            .FACTURA
+            {
+                    position: relative;
+                    left: 1px;
+                    top: 0px;
+
+            }
+        
+
+}
+
+
+
+@media only screen and (max-width: 280px)
+{
+
+    .LCODIGO{
+        position: relative;
+        left: 0px;
+        top:0px ;
+        }
+        .LCLIENTE{
+            position: relative;
+            left: -139px;
+            top: 35px
+
+        
+            }
+        .LFACTURA
+        {
+                position: relative;
+                left: -2px;
+                top: 0px;
+        
+        }
+        
+        .CODIGO{
+            position: relative;
+            left: 10px;
+            top: 0px;
+            }
+            .CLIENTE{
+                position: relative;
+                left: 78px;
+                top: -3px;
+                }
+            .FACTURA
+            {
+                    position: relative;
+                    left: 1px;
+                    top: 0px;
+
+            }
+        
+
+}
