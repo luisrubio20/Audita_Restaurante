@@ -18,8 +18,8 @@ function getReport() {
         })
         .then(response => response.json())
         .then(function graph(data) {
-            console.log(fecha.value);
-            if (fecha2.value.length != 0) {
+            console.log(data);
+            if (fecha2.value.length != 0 && data[0].HE_NETO_I != ".00" || data[0].HE_NETO_F != ".00" || data[0].HE_NETO_FS != ".00" || data[0].HE_NETO_F4 != ".00") {
                 var dataChar = [
 
                     { fecha: fecha.value, monto: data[0].HE_NETO_I },
