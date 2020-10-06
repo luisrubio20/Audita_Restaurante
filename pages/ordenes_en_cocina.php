@@ -3,11 +3,11 @@
     require 'header.php';
 ?>
 <link rel="stylesheet" href="../Css/tablaheader.css">
-
+<br>
+<div class="box box-primary">
 <div class="box-header with-border">
         <h3 class="t-cuadre">Ordenes En Cocina</h3>
             </div>
-<div class="box box-primary">
 <form class="form-inline" >
     
             <div id="cuadreA"></div>

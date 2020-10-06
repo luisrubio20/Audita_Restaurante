@@ -1,6 +1,6 @@
 <?php require 'conexion.php'; require 'header.php'; ?>
 <link rel="stylesheet" href="../Css/tablaheader.css">
-<br><br><br>
+<br>
 <form class="form-inline">   <label for="">Fecha:</label>
     <div class="input-group date col-md-3" style="width: 50%;">
      
@@ -8,10 +8,11 @@
     </div>
         <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"   margin-bottom:30px;">Consultar</button>
 </form>
+
+<div class="box box-primary">
 <div class="box-header width-border">
     <center><h1 class="header">Ventas por Categorias</h1></center>
 </div>
-<div class="box box-primary">
     <form class="form-box">
       
         <div class="form-group " >
