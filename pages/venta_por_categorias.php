@@ -6,12 +6,12 @@
 
 <div class="box box-primary">
     <form class="form-inline">
-        <div class="input-group date col-md-2" >
-            <label for="">Fecha:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input-group date col-md-2"  style="margin-left: 30px; margin-bottom:30px;">
+            <label for="">Fecha:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly" onchange="getfulldate();">
         </div>
-        <div class="input-group date col-md-2" >
-            <label for="">Tiempo: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input-group date col-md-2" style="margin-left: 30px; margin-bottom:30px;">
+            <label for="">Tiempo: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="Dias" id="Dias" class="form-control" onchange="getfulldate();">
                         <option value="0 day">Hoy</option>
                         <option value="1 day" id="ayer">Ayer</option>
@@ -26,22 +26,22 @@
                 <span class="glyphicon glyphicon-th"></span>
             </div>
         </div>
-        <div class="input-group date col-md-2" >
-            <label for="">Filtro:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input-group date col-md-2"  style="margin-left: 30px; margin-bottom:30px;">
+            <label for="">Filtro:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select class="form-control" id='filtro'>
                 <option value='dia'>dia</option>
                 <option value='mes'>mes</option>
                 <option value='año'>año</option>
             </select>
  </div>
-        <div class="input-group date col-md-4" >
-            <label for="">Departamento: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="input-group date col-md-4"  style=" margin-bottom:30px;">
+            <label for="">Departamento: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="depto" id="dept" class="form-control">
 
             </select>
         </div>
        
-        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();">Consultar</button>
+        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"  style=" margin-bottom:30px;">Consultar</button>
     </form>
 </div>
 
