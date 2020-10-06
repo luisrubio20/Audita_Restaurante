@@ -2,9 +2,13 @@
 
 require 'conexion.php';
 require 'header.php';
-$fecha_actual = date("m/d/Y")
+$fecha_actual = date("m/d/Y");
+
+
 ?>
 <link href="../Dependencias/multiselect4_1_0.css" rel="stylesheet" />
+<link rel="stylesheet" href="../Css/tablaheader.css">
+
 
 <style>
     .select2-container--default .select2-selection--single {
@@ -25,6 +29,7 @@ $fecha_actual = date("m/d/Y")
     <button type="button" id="buscar" class="btn btn-success consultar">Consultar</button>&nbsp;&nbsp;
     <div id="content"></div>
 </form>
+
 
 
 <div class="box box-primary">
@@ -62,19 +67,21 @@ $fecha_actual = date("m/d/Y")
         </select>
         </div>
 
+
+
         <div class="form-group">
         <label for="">Nombre Articulo</label>
-        <select name="articulos" id="articulos" class="form-control AGRANDAR ">
+        <select name="articulos" id="articulos" class="form-control">
             <?php
-            $select = $pdo->query("SELECT top 20 ar_codigo,ar_descri FROM ivbdarti");
-            $value = $select->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($value as $key => $fila) : ?>
+               $select2 = $pdo->query("SELECT top 1000 ar_codigo,ar_descri FROM ivbdarti ");
+                 $value2 = $select2->fetchAll(PDO::FETCH_ASSOC);
+                 foreach ($value2 as $key => $fila) : ?>
                 <option selected value="<?= trim($fila['ar_codigo']); ?>"><?= $fila['ar_descri']; ?></option>
             <?php endforeach ?>
             <option selected="selected" value="TODOS">Todos</option>
         </select>
         </div>
-
+                 
 
 
 
@@ -83,7 +90,7 @@ $fecha_actual = date("m/d/Y")
         <br>
 
 
-
+                <div class="contents">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -104,6 +111,7 @@ $fecha_actual = date("m/d/Y")
             </tbody>
 
         </table>
+        </div>   
 
 
     </div>
@@ -124,6 +132,7 @@ $fecha_actual = date("m/d/Y")
         }); //termina datapicker
 
         $("#articulos").select2({});
+         
 
         $("#Dias").on('change', function() {
             var dias = $("#Dias").val();
@@ -156,25 +165,17 @@ $fecha_actual = date("m/d/Y")
             var Articulo = $("#articulos").val();
 
             var datos = "fecha=" + fecha  + "&dias=" + Dias + "&articulo=" + Articulo;
-             alert(datos);
-
+           
             $.ajax({
 
                 type: "post",
                 url: "../models/sesion_ventas_articulo.php",
-                data: datos,
+                 data: datos,
                 success: function(e) {
-
-                   
                     $("#ventas").load("../models/select_ventas_x_articulo.php");
                   //  $("#auditoriaA").fadeIn(1000).html('<div class="" style="color:#008d4c;"> <img  style="background: #00a65a;border-radius: 20px;" src="../img/Untitled.png"/>  </div>');
 
-
-
-
                 }
-
-
 
             }); //termina ajax
 

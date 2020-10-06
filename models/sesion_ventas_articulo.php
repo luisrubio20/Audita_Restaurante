@@ -9,6 +9,10 @@ $_SESSION['dias2'] = $dias;
 $_SESSION['articulo2'] = $articulo;
 $_SESSION['fecha2'] = $fecha;
 
+echo $dias;
+echo $articulo;
+echo $fecha;
+
 
 
 
