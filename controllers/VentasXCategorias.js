@@ -17,6 +17,7 @@ function getfulldate() {
             body: formdata
         }).then(response => response.json())
         .then(function refill(data) {
+            date.value = data;
             fecha = data;
             console.log(data);
         });
@@ -49,14 +50,21 @@ function getData() {
         })
         .then(response => response.json())
         .then(function refill(data) {
-            for (dat of data) {
-                contenido.innerHTML += '<tr><td>' + dat.ar_codigo + '</td>' +
-                    '<td>' + dat.ar_descri + '</td>' +
-                    '<td>' + dat.CANTIDAD + '</td>' +
-                    '<td>' + dat.TOTAL + '</td>' +
+            if (data != 0) {
+                for (dat of data) {
+                    contenido.innerHTML += '<tr><td>' + dat.ar_codigo + '</td>' +
+                        '<td>' + dat.ar_descri + '</td>' +
+                        '<td>' + dat.CANTIDAD + '</td>' +
+                        '<td>' + dat.TOTAL + '</td>' +
 
-                    '</tr>'
+                        '</tr>'
+                }
+            } else {
+                swal("Error!!", "No hay Datos en esta Fecha", "error", {
+                    buttons: false,
+                    timer: 800
+                });
+
             }
-
         });
 }

@@ -1,17 +1,21 @@
 <?php require 'conexion.php'; require 'header.php'; ?>
 <link rel="stylesheet" href="../Css/tablaheader.css">
+<br><br><br>
+<form class="form-inline">   <label for="">Fecha:</label>
+    <div class="input-group date col-md-3" style="width: 50%;">
+     
+        <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly" onchange="getfulldate();">
+    </div>
+        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"   margin-bottom:30px;">Consultar</button>
+</form>
 <div class="box-header width-border">
-    <h1 class="header">Ventas por Categorias</h1>
+    <center><h1 class="header">Ventas por Categorias</h1></center>
 </div>
-
 <div class="box box-primary">
-    <form class="form-inline">
-        <div class="input-group date col-md-2"  style="margin-left: 30px; margin-bottom:30px;">
-            <label for="">Fecha:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly" onchange="getfulldate();">
-        </div>
-        <div class="input-group date col-md-2" style="margin-left: 30px; margin-bottom:30px;">
-            <label for="">Tiempo: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form class="form-box">
+      
+        <div class="form-group " >
+            <label for="">Tiempo: </label><br>
                     <select name="Dias" id="Dias" class="form-control" onchange="getfulldate();">
                         <option value="0 day">Hoy</option>
                         <option value="1 day" id="ayer">Ayer</option>
@@ -22,26 +26,26 @@
                         <option value="6 day">Hace 6 dias</option>
                         <option value="7 day">1 Semana</option>
                     </select>
-            <div class="input-group-addon">
+            <div class="form-group-addon">
                 <span class="glyphicon glyphicon-th"></span>
             </div>
         </div>
-        <div class="input-group date col-md-2"  style="margin-left: 30px; margin-bottom:30px;">
-            <label for="">Filtro:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+            <label for="">Filtro:</label><br>
             <select class="form-control" id='filtro'>
                 <option value='dia'>dia</option>
                 <option value='mes'>mes</option>
                 <option value='año'>año</option>
             </select>
  </div>
-        <div class="input-group date col-md-4"  style=" margin-bottom:30px;">
-            <label for="">Departamento: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group"   >
+            <label for="">Departamento: </label><br>
             <select name="depto" id="dept" class="form-control">
 
             </select>
         </div>
        
-        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"  style=" margin-bottom:30px;">Consultar</button>
+      
     </form>
 </div>
 
