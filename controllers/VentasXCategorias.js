@@ -19,7 +19,7 @@ function getfulldate() {
         .then(function refill(data) {
             date.value = data;
             fecha = data;
-            console.log(data);
+
         });
 }
 getfulldate();

@@ -4,7 +4,7 @@
 <form class="form-inline">   <label for="">Fecha:</label>
     <div class="input-group date col-md-3" style="width: 50%;">
      
-        <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly" onchange="getfulldate();">
+        <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly>
     </div>
         <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"   margin-bottom:30px;">Consultar</button>
 </form>

@@ -1,5 +1,5 @@
 <?php
-    $date = $_POST['date'];
+    $date = date('m/d/Y');
     $DateValue = $_POST['DateValue'];
 
     $shortdate = date("m/d/Y", strtotime($date."-".$DateValue));
