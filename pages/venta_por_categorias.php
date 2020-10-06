@@ -6,11 +6,11 @@
 
 <div class="box box-primary">
     <form class="form-inline">
-        <div class="input-group date col-md-3" >
+        <div class="input-group date col-md-2" >
             <label for="">Fecha:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly" onchange="getfulldate();">
         </div>
-        <div class="input-group date col-md-3" >
+        <div class="input-group date col-md-2" >
             <label for="">Tiempo: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="Dias" id="Dias" class="form-control" onchange="getfulldate();">
                         <option value="0 day">Hoy</option>
@@ -26,7 +26,15 @@
                 <span class="glyphicon glyphicon-th"></span>
             </div>
         </div>
-        <div class="input-group date col-md-3" >
+        <div class="input-group date col-md-2" >
+            <label for="">Filtro:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="form-control" id='filtro'>
+                <option value='dia'>dia</option>
+                <option value='mes'>mes</option>
+                <option value='año'>año</option>
+            </select>
+ </div>
+        <div class="input-group date col-md-4" >
             <label for="">Departamento: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select name="depto" id="dept" class="form-control">
 

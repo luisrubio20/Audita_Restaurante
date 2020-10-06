@@ -3,6 +3,7 @@ const date = document.getElementById('fecha1');
 const DateValue = document.getElementById('Dias');
 const contenido = document.getElementById('contenido');
 const dept = document.getElementById('dept');
+const filtro = document.getElementById('filtro');
 var fecha = '';
 
 
@@ -40,6 +41,7 @@ function getData() {
     formdate.append('date', date.value);
     formdate.append('DateValue', fecha);
     formdate.append('dept', dept.value);
+    formdate.append('filtro', filtro.value);
     contenido.textContent = '';
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
