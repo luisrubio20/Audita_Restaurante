@@ -7,7 +7,7 @@ btn.addEventListener('click', () => {
     fetch('../models/select_comparativosCB.PHP')
         .then(response => response.json())
         .then(function refill(data) {
-            if (fecha.value.length != 0) {
+            if (data != 0) {
                 grafica.textContent = '';
                 Morris.Bar({
                     element: 'grafica',
@@ -20,6 +20,7 @@ btn.addEventListener('click', () => {
                     console.log(i, row);
                 });
             } else {
+
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
                     timer: 800
