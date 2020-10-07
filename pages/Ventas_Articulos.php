@@ -192,11 +192,11 @@ $fecha_actual = date("m/d/Y");
                                <tr>
                                <td>${valor2.ar_descri.trim()}</td>
                                <td>${valor2.ar_codigo}</td>
-                               <td>${currency(valor2.VALOR1,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(valor2.VALOR3,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency( valor2.VALOR3DL,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(total,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency(valor2.VALOR1,{pattern: `# `}).format()}</td>
+                               <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format()}</td>
+                               <td>${currency(valor2.VALOR3,{pattern: `# `}).format()}</td>
+                               <td>${currency( valor2.VALOR3DL,{pattern: `# `}).format()}</td>
+                               <td>${currency(total,{pattern: `# `}).format()}</td>
                          
                                </tr>
                                    `
