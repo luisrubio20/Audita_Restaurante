@@ -24,13 +24,19 @@
         <h1 class="" style="text-align:center; color:black;">Comparativos Costo Beneficio</h1>
     </div>
 
-
-
+    </div>
+<br>
     <div class="col-md-12">
         <div class="table-responsive bg-w p-3">
-            <div id="grafica"></div>    
+        <div class="box box-primary">
+    <div class="box-header with-border">
+        <h1 class="" style="color:black;">Grafico</h1>
+        <div id="grafica"></div> 
+    </div>
+
+              
                    
-            </div>
+         
             <div class="row" id="detalle" style="display: none;"><!--empieza row-->
 
 <?php require 'footer.php'; ?>

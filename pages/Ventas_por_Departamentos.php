@@ -6,12 +6,12 @@
      
         <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly>
     </div>
-        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();"   margin-bottom:30px;">Consultar</button>
+        <button type="button" id="Consultar" class="btn btn-success" onclick="getDataX();"   margin-bottom:30px;">Consultar</button>
 </form>
 
 <div class="box box-primary">
 <div class="box-header width-border">
-    <center><h1 class="header">Ventas por Categorias</h1></center>
+    <center><h1 class="header">Ventas por Departamentos</h1></center>
 </div>
     <form class="form-box">
       
@@ -42,7 +42,7 @@
         <div class="form-group"   >
             <label for="">Departamento: </label><br>
             <select name="depto" id="dept" class="form-control">
-                <option value="todos">Todos</option>
+                    <option value="todos">Todos</option>
             </select>
         </div>
        
@@ -52,11 +52,14 @@
 
 <div class="box-body">
     <div class="contents">
-    <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
+        <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
+                <th>Descripcion</th>
             <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Cantidad General</th>
+            <th>Cant. En Restaurante</th>
+            <th>Cant. En Delivery</th>
+            <th>Total Restaurante</th>
+            <th>Total Delivery</th>
             <th>Total General</th>
             </thead>
             <tbody id="contenido">
