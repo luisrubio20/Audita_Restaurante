@@ -10,22 +10,40 @@ $mes = date('m',strtotime($fec2));
 
     $CONDICION='';
 
-
-        switch ($filtro) 
-        {
-            case $filtro == 'mes':
-                $CONDICION= " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and YEAR(a.de_fecha)='".$ano."' AND MONTH(a.de_fecha)='".$mes."'";         
-        break;
-            case $filtro == "dia":
-                $CONDICION =" WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and a.de_fecha='".$fec2."'";
-
+        if($departamento == 'todos'){
+            switch ($filtro) 
+            {
+                case $filtro == 'mes':
+                    $CONDICION= " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0  and YEAR(a.de_fecha)='".$ano."' AND MONTH(a.de_fecha)='".$mes."'";         
             break;
-
-            case $filtro == "año":
-                $CONDICION = " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and YEAR(a.de_fecha)='".$ano."'";
-
-            break;  
-          }
+                case $filtro == "dia":
+                    $CONDICION =" WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0  and a.de_fecha='".$fec2."'";
+    
+                break;
+    
+                case $filtro == "año":
+                    $CONDICION = " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and YEAR(a.de_fecha)='".$ano."'";
+    
+                break;  
+              }
+        }else{
+            switch ($filtro) 
+            {
+                case $filtro == 'mes':
+                    $CONDICION= " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and YEAR(a.de_fecha)='".$ano."' AND MONTH(a.de_fecha)='".$mes."'";         
+            break;
+                case $filtro == "dia":
+                    $CONDICION =" WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and a.de_fecha='".$fec2."'";
+    
+                break;
+    
+                case $filtro == "año":
+                    $CONDICION = " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and b.de_codigo = '{$departamento}' and YEAR(a.de_fecha)='".$ano."'";
+    
+                break;  
+              }
+        }
+      
 
 
     $select = "SELECT  a.ar_codigo

@@ -42,7 +42,7 @@
         <div class="form-group"   >
             <label for="">Departamento: </label><br>
             <select name="depto" id="dept" class="form-control">
-
+                    <option value="todos">Todos</option>
             </select>
         </div>
        

@@ -9,7 +9,23 @@ $ano = date('Y',strtotime($fec2));
 $mes = date('m',strtotime($fec2));
 
     $CONDICION='';
+    if($departamento == 'todos'){
+        switch ($filtro) 
+        {
+            case $filtro == 'mes':
+                $CONDICION= " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0  and YEAR(a.de_fecha)='".$ano."' AND MONTH(a.de_fecha)='".$mes."'";         
+        break;
+            case $filtro == "dia":
+                $CONDICION =" WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0  and a.de_fecha='".$fec2."'";
 
+            break;
+
+            case $filtro == "año":
+                $CONDICION = " WHERE LEN(a.dE_TIPO)>0 and a.dE_cantid>=0 and YEAR(a.de_fecha)='".$ano."'";
+
+            break;  
+          }
+    }else{
 
         switch ($filtro) 
         {
@@ -26,7 +42,7 @@ $mes = date('m',strtotime($fec2));
 
             break;  
           }
-
+        }
 
     $select = "SELECT  a.ar_codigo   
             ,SUM(A.DE_CANTID)CANTIDAD

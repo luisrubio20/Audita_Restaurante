@@ -110,7 +110,6 @@ function getDataX() {
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                 $('#example').DataTable({
-                    "paging": false,
                     "ordering": false,
                     "info": false,
                     "searching": false
