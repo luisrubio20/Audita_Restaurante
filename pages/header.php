@@ -157,7 +157,7 @@ if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
             <li class="active"><a href="Ventas_Articulos.php"><i class="fa fa-circle-o"></i>Ventas por Articulos</a></li>
             <li class="active"><a href="ventas_horas.php"><i class="fa fa-circle-o"></i>Ventas por Horas</a></li>
             <li class="active"><a href="Ventas_por_Departamentos.php"><i class="fa fa-circle-o"></i>Ventas por Departamento</a></li>
-            <li class="active"><a href="Resumen_Ventas.php"><i class="fa fa-circle-o"></i>Ventas por Departamento</a></li>
+            <li class="active"><a href="Resumen_Ventas.php"><i class="fa fa-circle-o"></i>Resumen Ventas</a></li>
             
           
 
