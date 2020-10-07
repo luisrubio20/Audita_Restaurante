@@ -45,8 +45,9 @@ function getData() {
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
     $("#charge1").show();
-    $("#Consultar").prop('disabled',true);s
-        $('#example').DataTable().clear().destroy();
+    $("#Consultar").prop('disabled', true);
+    s
+    $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
             body: formdate
@@ -65,22 +66,22 @@ function getData() {
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                 $('#example').DataTable({
-             
+
                     "paging": false,
                     "ordering": false,
                     "info": false,
                     "searching": false
                 });
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
-                
+                $("#Consultar").prop('disabled', false)
+
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
                     timer: 800
                 });
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
+                $("#Consultar").prop('disabled', false)
             }
         });
 }
@@ -93,12 +94,8 @@ function getDataX() {
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
-<<<<<<< HEAD
-    document.getElementById('example').style.cssText = 'width:100%; display: none;'
-=======
     $("#charge1").show();
     $("#Consultar").prop('disabled', true);
->>>>>>> 17ce1db09d4b7deb82d0794bf072007ede403d2b
     $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXdept.php', {
             method: 'post',
@@ -122,7 +119,7 @@ function getDataX() {
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                 $('#example').DataTable({
-                    "destroy":true,
+                    "destroy": true,
                     "ordering": false,
                     "info": false,
                     "searching": false
@@ -136,7 +133,7 @@ function getDataX() {
                     timer: 800
                 });
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
+                $("#Consultar").prop('disabled', false)
             }
         });
 }
