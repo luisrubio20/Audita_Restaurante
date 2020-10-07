@@ -52,7 +52,7 @@
 
 <div class="box-body">
     <div class="contents">
-        <table class="table " id="myTable">
+    <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
             <th>Codigo</th>
             <th>Descripcion</th>

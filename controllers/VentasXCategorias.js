@@ -44,6 +44,7 @@ function getData() {
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
+    $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
             body: formdate
@@ -59,6 +60,15 @@ function getData() {
 
                         '</tr>'
                 }
+                document.getElementById('example').style.cssText = 'width:100%; display: box;'
+
+                $('#example').DataTable({
+                    "paging": false,
+                    "ordering": false,
+                    "info": false,
+                    "searching": false
+                });
+
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
@@ -68,6 +78,7 @@ function getData() {
             }
         });
 }
+var on = 0;
 
 function getDataX() {
     const formdate = new FormData();
@@ -76,24 +87,37 @@ function getDataX() {
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
+    $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXdept.php', {
             method: 'post',
             body: formdate
         })
         .then(response => response.json())
         .then(function refill(data) {
-            console.log(data);
+
             if (data != 0) {
                 for (dat of data) {
-                    contenido.innerHTML += '<tr><td>' + dat.ar_codigo + '</td>' +
-                        '<td>' + dat.ar_descri + '</td>' +
+                    contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
+                        '<td>' + dat.ar_codigo + '</td>' +
                         '<td>' + dat.cantidadRest + '</td>' +
                         '<td>' + dat.cantidadDel + '</td>' +
                         '<td>' + currency(dat.TotalRest).format() + '</td>' +
                         '<td>' + currency(dat.totalDel).format() + '</td>' +
                         '<td>' + currency((parseFloat(dat.TotalRest) + parseFloat(dat.totalDel))).format() + '</td>' +
                         '</tr>'
+
                 }
+                document.getElementById('example').style.cssText = 'width:100%; display: box;'
+
+                $('#example').DataTable({
+                    "paging": false,
+                    "ordering": false,
+                    "info": false,
+                    "searching": false
+                });
+
+
+
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,

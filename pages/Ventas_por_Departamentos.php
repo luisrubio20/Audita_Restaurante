@@ -11,7 +11,7 @@
 
 <div class="box box-primary">
 <div class="box-header width-border">
-    <center><h1 class="header">Ventas por Categorias</h1></center>
+    <center><h1 class="header">Ventas por Departamentos</h1></center>
 </div>
     <form class="form-box">
       
@@ -52,10 +52,10 @@
 
 <div class="box-body">
     <div class="contents">
-        <table class="table " id="myTable">
+        <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
+                <th>Descripcion</th>
             <th>Codigo</th>
-            <th>Descripcion</th>
             <th>Cant. En Restaurante</th>
             <th>Cant. En Delivery</th>
             <th>Total Restaurante</th>

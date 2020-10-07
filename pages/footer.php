@@ -51,5 +51,10 @@
 <!-- AdminLTE App -->
 <script src="../funciones/adminlte.min.js"></script>
 
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.jqueryui.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.jqueryui.min.js"></script>
+
 <script src="../Dependencias/sweetalert.min.js"></script>
      
