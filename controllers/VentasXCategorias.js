@@ -68,3 +68,38 @@ function getData() {
             }
         });
 }
+
+function getDataX() {
+    const formdate = new FormData();
+    formdate.append('date', date.value);
+    formdate.append('DateValue', fecha);
+    formdate.append('dept', dept.value);
+    formdate.append('filtro', filtro.value);
+    contenido.textContent = '';
+    fetch('../models/select_ventasXdept.php', {
+            method: 'post',
+            body: formdate
+        })
+        .then(response => response.json())
+        .then(function refill(data) {
+            console.log(data);
+            if (data != 0) {
+                for (dat of data) {
+                    contenido.innerHTML += '<tr><td>' + dat.ar_codigo + '</td>' +
+                        '<td>' + dat.ar_descri + '</td>' +
+                        '<td>' + dat.cantidadRest + '</td>' +
+                        '<td>' + dat.cantidadDel + '</td>' +
+                        '<td>' + currency(dat.TotalRest).format() + '</td>' +
+                        '<td>' + currency(dat.totalDel).format() + '</td>' +
+                        '<td>' + currency((parseFloat(dat.TotalRest) + parseFloat(dat.totalDel))).format() + '</td>' +
+                        '</tr>'
+                }
+            } else {
+                swal("Error!!", "No hay Datos en esta Fecha", "error", {
+                    buttons: false,
+                    timer: 800
+                });
+
+            }
+        });
+}
