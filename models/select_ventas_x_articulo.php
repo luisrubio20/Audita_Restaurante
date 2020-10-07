@@ -3,9 +3,12 @@ ini_set('max_execution_time', 300);
 require '../pages/conexion.php';
 
 
-isset($_SESSION['fecha2']) ? $fecha= date_create_from_format('d/m/Y', $_SESSION['fecha2']) : $fecha = "";  
-isset($_SESSION['articulo2']) ? $articulo = $_SESSION['articulo2'] : $articulo = $_SESSION['articulo2'] = "";
-isset($_SESSION['dias2']) ? $dia = $_SESSION['dias2'] : $dia = $_SESSION['dias2'] = "";
+$fecha= date_create_from_format('d/m/Y', $_POST['fecha2']);
+$dia = $_POST['dias2'];
+isset($_POST['articulo2']) ? $articulo = $_POST['articulo2'] : $articulo = $_POST['articulo2'] = "";
+
+//$articulo = $_POST['articulos2'];
+
 $fecha = date_format($fecha, 'Ymd');
 $ano = date('Y', strtotime($fecha));
 $mes = date('m', strtotime($fecha));
@@ -72,51 +75,5 @@ $cuenta = $select->rowCount();
 
 $value = $select->fetchAll(PDO::FETCH_ASSOC);
 
-$totalvalor1=0;
-$totalvalor1DL=0;
-$totalvalor3=0;
-$totalvalor3dl=0;
-$totalgeneral=0;
-foreach($value as $key => $fila):
-
-    $totalvalor1 += $fila['VALOR1'];
-    $totalvalor1DL += $fila['VALOR1DL'];
-    $totalvalor3 += $fila['VALOR3'];
-    $totalvalor3dl+= $fila['VALOR3DL'];
-    $totalgeneral += $fila['VALOR3'] +  $fila['VALOR3DL'];
-     //$total =  $fila['VALOR3'] +  $fila['VALOR3DL'];
-    ?>
-
-    <tr>
-    <td><?= $fila['ar_codigo']; ?></td>
-    <td><?= $fila['ar_descri']; ?></td>
-    <td><?= number_format($fila['VALOR1'],2); ?></td>
-    <td><?= number_format($fila['VALOR1DL'],2); ?></td>
-    <td><?=  number_format($fila['VALOR3'],2); ?></td>
-    <td><?= number_format($fila['VALOR3DL'],2); ?></td>
-    <td><?=number_format($fila['VALOR3']+$fila['VALOR3DL'],2)?></td>
-    </tr>
-
-
-<?php endforeach ?>
-
-<?php if($cuenta == 0)
-{
-    return;
-}
-else
-{
-
+echo json_encode($value);
 ?>
-
-<tr>
-    <td></td>
-    <th>TOTALES</th>
-    <th><?= number_format($totalvalor1,2); ?></th>
-    <th><?= number_format($totalvalor1DL,2); ?></th>
-    <th><?= number_format($totalvalor3,2); ?></th>
-    <th><?= number_format($totalvalor3dl,2); ?></th>
-    <th><?= number_format($totalgeneral ,2); ?></th>
-</tr>
-
-<?php } ?>

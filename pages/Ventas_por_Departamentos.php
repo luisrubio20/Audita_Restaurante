@@ -62,7 +62,7 @@
             <th>Total Delivery</th>
             <th>Total General</th>
             </thead>
-            <tbody id="contenido">
+            <tbody id="contenido" style="font-weight: normal;">
 
             </tbody>
         </table>

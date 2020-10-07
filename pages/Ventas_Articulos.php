@@ -7,7 +7,6 @@ $fecha_actual = date("m/d/Y");
 
 ?>
 <link href="../Dependencias/multiselect4_1_0.css" rel="stylesheet" />
-<link rel="stylesheet" href="../Css/tablaheader.css">
 
 
 <style>
@@ -81,51 +80,40 @@ $fecha_actual = date("m/d/Y");
             <option selected="selected" value="TODOS">Todos</option>
         </select>
         </div>
-                 
-
-
-
 
         <br>
         <br>
 
-
-                <div class="contents">
-        <table class="table table-striped">
-            <thead class="thead-dark">
+                <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
+                <thead class="thead-dark">
                 <tr>
-                    <th style="font-size: 16px;">Codigo </th>
                     <th style="font-size: 16px;">Descripcion</th>
-                    <th style="font-size: 16px;">Cant.Restaurante</th>
-                    <th style="font-size: 16px;">Cant.Delivery</th>
+                    <th style="font-size: 16px;">Codigo </th>
+                    <th style="font-size: 16px;">Cantidad Restaurante</th>
+                    <th style="font-size: 16px;">Cantidad Delivery</th>
                     <th style="font-size: 16px;">Total Restaurante</th>
                     <th style="font-size: 16px;">Total Delivery</th>
                     <th style="font-size: 16px;">Total General</th>
 
-                
                 </tr>
             </thead>
-            <tbody id="ventas">
+            <tbody id="ventas" style="font-weight: normal;">
 
 
             </tbody>
 
         </table>
-        </div>   
 
 
     </div>
 </div>
 
 
-
-
-
-
 <?php require 'footer.php'; ?>
 <script src="../Dependencias/multiselect4_1_0.js"></script>
 
 <script type="text/javascript">
+
     $(document).ready(function() {
         $('#fecha').datepicker({
             format: 'dd/mm/yyyy',
@@ -158,27 +146,70 @@ $fecha_actual = date("m/d/Y");
 
 
         $("#buscar").on('click', function() {
-         //   $('#ArticulosA').html('<div class="loading" style="color:#3c8dbc;"><img src="../img/ac1.gif"/>Un momento, por favor...</div>');
-
+            $('#example').DataTable().clear().destroy();
             var fecha = $("#fecha").val();
             var Dias = $("#Filtro").val();
             var Articulo = $("#articulos").val();
+            var contenido = document.getElementById("ventas");
 
-            var datos = "fecha=" + fecha  + "&dias=" + Dias + "&articulo=" + Articulo;
-           
+            var datos = "fecha2=" + fecha  + "&dias2=" + Dias + "&articulo2=" + Articulo;
+          
             $.ajax({
 
                 type: "post",
-                url: "../models/sesion_ventas_articulo.php",
+                url: "../models/select_ventas_x_articulo.php",
                  data: datos,
-                success: function(e) {
-                    $("#ventas").load("../models/select_ventas_x_articulo.php");
-                  //  $("#auditoriaA").fadeIn(1000).html('<div class="" style="color:#008d4c;"> <img  style="background: #00a65a;border-radius: 20px;" src="../img/Untitled.png"/>  </div>');
+                success: function(e)
+                 {
+                     var valor = JSON.parse(e);
+                     
+                        if(valor.length == 0)
+                        {
+                              swal("Error!!", "No hay Datos en esta Fecha", "error", {
+                              buttons: false,
+                               timer: 800
+                            });
+                        }
+                        else
+                        {
+
+                     
+
+
+                     for(let valor2 of valor)
+                     {
+                        var total = parseFloat(valor2.VALOR3) + parseFloat(valor2.VALOR3DL);
+                                   contenido.innerHTML +=`
+
+                               <tr>
+                               <td>${valor2.ar_descri}</td>
+                               <td>${valor2.ar_codigo}</td>
+                               <td>${valor2.VALOR1}</td>
+                               <td>${valor2.VALOR1DL}</td>
+                               <td>${valor2.VALOR3}</td>
+                               <td>${valor2.VALOR3DL}</td>
+                               <td>${total}</td>
+                            
+                               </tr>
+                                   `
+                               }       
+                               document.getElementById('example').style.cssText = 'width:100%; display: box;'
+
+                        $('#example').DataTable({
+                            "ordering": false,
+                            "info": false,
+                            "searching": false
+                        });
+
+                               
                 }
 
+            }
+            
+            
             }); //termina ajax
 
-
+           
         }); //termina punto click
     });
 </script>
