@@ -40,10 +40,8 @@
 
 
 
-<script src="/PHP%207/funciones/raphael-min.js"></script>
-
-     <script src="/PHP%207/funciones/morris.min.js"></script>
-     
+<script src="../funciones/raphael-min.js"></script>
+ <script src="../funciones/morris.min.js"></script>   
 <script src="../funciones/Menu.js"></script>
   <!-- Daterange picker -->
   <!-- <script src="../funciones/datepicker.min.js"></script>-->

@@ -174,7 +174,6 @@ $fecha_actual = date("m/d/Y");
                 success: function(e) {
                     $("#ventas").load("../models/select_ventas_x_articulo.php");
                   //  $("#auditoriaA").fadeIn(1000).html('<div class="" style="color:#008d4c;"> <img  style="background: #00a65a;border-radius: 20px;" src="../img/Untitled.png"/>  </div>');
-
                 }
 
             }); //termina ajax
