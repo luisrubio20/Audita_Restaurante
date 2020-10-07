@@ -87,6 +87,7 @@ function getDataX() {
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
+    document.getElementById('example').style.cssText = 'width:100%; display: none;'
     $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXdept.php', {
             method: 'post',

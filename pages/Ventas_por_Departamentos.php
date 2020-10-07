@@ -1,5 +1,5 @@
 <?php require 'conexion.php'; require 'header.php'; ?>
-<link rel="stylesheet" href="../Css/tablaheader.css">
+    
 <br>
 <form class="form-inline">   <label for="">Fecha:</label>
     <div class="input-group date col-md-3" style="width: 50%;">
@@ -51,7 +51,6 @@
 </div>
 
 <div class="box-body">
-    <div class="contents">
         <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
                 <th>Descripcion</th>
@@ -66,7 +65,6 @@
 
             </tbody>
         </table>
-        </div>
 </div>
 <?php  require 'footer.php'; ?>
 <script src="../controllers/VentasXCategorias.js"></script>
