@@ -13,6 +13,10 @@ $fecha_actual = date("m/d/Y");
     .select2-container--default .select2-selection--single {
         height: 8% !important;
     }
+    #charge1{
+
+        display: none;
+    }
 </style>
 
 
@@ -25,7 +29,7 @@ $fecha_actual = date("m/d/Y");
         </div>
     </div>
 
-    <button type="button" id="buscar" class="btn btn-success consultar">Consultar</button>&nbsp;&nbsp;
+    <button type="button" id="buscar" class="btn btn-success consultar">Consultar <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span>  </button>&nbsp;&nbsp;
     <div id="content"></div>
 </form>
 
@@ -146,7 +150,9 @@ $fecha_actual = date("m/d/Y");
 
 
         $("#buscar").on('click', function() {
+            $("#buscar").prop('disabled',true);
             $('#example').DataTable().clear().destroy();
+            $("#charge1").show();
             var fecha = $("#fecha").val();
             var Dias = $("#Filtro").val();
             var Articulo = $("#articulos").val();
@@ -169,6 +175,8 @@ $fecha_actual = date("m/d/Y");
                               buttons: false,
                                timer: 800
                             });
+                         $("#charge1").hide();
+                        $("#buscar").prop('disabled', false);
                         }
                         else
                         {
@@ -182,25 +190,28 @@ $fecha_actual = date("m/d/Y");
                                    contenido.innerHTML +=`
 
                                <tr>
-                               <td>${valor2.ar_descri}</td>
+                               <td>${valor2.ar_descri.trim()}</td>
                                <td>${valor2.ar_codigo}</td>
-                               <td>${valor2.VALOR1}</td>
-                               <td>${valor2.VALOR1DL}</td>
-                               <td>${valor2.VALOR3}</td>
-                               <td>${valor2.VALOR3DL}</td>
-                               <td>${total}</td>
-                            
+                               <td>${currency(valor2.VALOR1,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency(valor2.VALOR3,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency( valor2.VALOR3DL,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency(total,{pattern: `# `}).format().trim()}</td>
+                         
                                </tr>
                                    `
                                }       
                                document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                         $('#example').DataTable({
+                            "destroy":true,
                             "ordering": false,
                             "info": false,
                             "searching": false
                         });
 
+                        $("#charge1").hide();
+                        $("#buscar").prop('disabled', false);
                                
                 }
 
