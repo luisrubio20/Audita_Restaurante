@@ -3,10 +3,13 @@ const fecha = document.getElementById('fecha1');
 const grafica = document.getElementById('grafica');
 
 btn.addEventListener('click', () => {
+    $("#comparar").prop('disabled',true);
+     $("#charge1").show();
     document.cookie = 'fecha=' + fecha.value + '; path=/';
     fetch('../models/select_comparativosCB.PHP')
         .then(response => response.json())
         .then(function refill(data) {
+            console.log(data);
             if (data != 0) {
                 grafica.textContent = '';
                 Morris.Bar({
@@ -25,10 +28,15 @@ btn.addEventListener('click', () => {
                     buttons: false,
                     timer: 800
                 });
-                $("#content").fadeIn(1000).html('<div class="" style="color:#008d4c;"> <img  style="background: #00a65a;border-radius: 20px;" src="../img/Untitled.png"/>  </div>');
-                $("#detalle").hide();
+                $("#grafica").empty();
+             $("#detalle").hide();
+            $("#comparar").prop('disabled',false);
+            $("#charge1").hide();
 
             }
+            $("#detalle").hide();
+            $("#comparar").prop('disabled',false);
+            $("#charge1").hide();
         });
 
 });
