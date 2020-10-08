@@ -30,13 +30,13 @@ if($auth->login($_POST['usuario'],$_POST['clave'])){
 
 
 }else{
-    header('Location: login.php?auth=failed');
+    header('Location: ../pages/login.php?auth=failed');
 }
 
 
 // Logout
 if(isset($_GET['logout']) && $_GET['logout'] == true){
     $auth->logOut();
-    header('Location: login.php');
+    header('Location: ../pages/login.php');
 }
 

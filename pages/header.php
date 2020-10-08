@@ -110,7 +110,7 @@ if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="./AuthProcess.php?logout=true" class="btn btn-default btn-flat">Salir</a>
+                  <a href="../proccess/AuthProcess.php?logout=true" class="btn btn-default btn-flat">Salir</a>
                 </div>
               </li>
             </ul>

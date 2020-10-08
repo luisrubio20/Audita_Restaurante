@@ -1,5 +1,4 @@
 <?php require 'conexion.php'; require 'header.php'; ?>
-<link rel="stylesheet" href="../Css/tablaheader.css">
 <br>
 <style>
     .select2-container--default .select2-selection--single {
@@ -16,7 +15,7 @@
      
         <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly>
     </div>
-        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();">Consultar<span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
+        <button type="button" id="Consultar" class="btn btn-success" onclick="getData();">Consultar      <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
 </form>
 
 <div class="box box-primary">
@@ -61,19 +60,17 @@
 </div>
 
 <div class="box-body">
-    <div class="contents">
     <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
-            <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Cantidad General</th>
-            <th>Total General</th>
+                 <th>Descripcion</th>
+                <th>Codigo</th>
+                <th>Cantidad General</th>
+                <th>Total General</th>
             </thead>
             <tbody id="contenido" style="font-weight: normal;">
 
             </tbody>
         </table>
-        </div>
 </div>
 <?php  require 'footer.php'; ?>
 <script src="../controllers/VentasXCategorias.js"></script>
