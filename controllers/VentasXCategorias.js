@@ -46,7 +46,6 @@ function getData() {
     contenido.textContent = '';
     $("#charge1").show();
     $("#Consultar").prop('disabled', true);
-    s
     $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
