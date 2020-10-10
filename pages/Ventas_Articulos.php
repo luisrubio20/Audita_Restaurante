@@ -37,7 +37,7 @@ $fecha_actual = date("m/d/Y");
 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="t-cuadre">Ventas Por Articulo / Renglones </h3>
+        <h3 class="header">Ventas Por Articulo / Renglones </h3>
      <!--   <div id="ArticulosA"></div> -->
     </div>
 
@@ -150,6 +150,7 @@ $fecha_actual = date("m/d/Y");
 
 
         $("#buscar").on('click', function() {
+            $("#example").hide();
             $("#buscar").prop('disabled',true);
             $('#example').DataTable().clear().destroy();
             $("#charge1").show();
@@ -177,6 +178,7 @@ $fecha_actual = date("m/d/Y");
                             });
                          $("#charge1").hide();
                         $("#buscar").prop('disabled', false);
+                        $("#example").hide();
                         }
                         else
                         {
@@ -192,11 +194,11 @@ $fecha_actual = date("m/d/Y");
                                <tr>
                                <td>${valor2.ar_descri.trim()}</td>
                                <td>${valor2.ar_codigo}</td>
-                               <td>${currency(valor2.VALOR1,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(valor2.VALOR3,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency( valor2.VALOR3DL,{pattern: `# `}).format().trim()}</td>
-                               <td>${currency(total,{pattern: `# `}).format().trim()}</td>
+                               <td>${currency(valor2.VALOR1,{pattern: `# `}).format()}</td>
+                               <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format()}</td>
+                               <td>${currency(valor2.VALOR3,{pattern: `# `}).format()}</td>
+                               <td>${currency( valor2.VALOR3DL,{pattern: `# `}).format()}</td>
+                               <td>${currency(total,{pattern: `# `}).format()}</td>
                          
                                </tr>
                                    `

@@ -1,5 +1,5 @@
 <?php
-
+ini_set('max_execution_time', 300); 
 require '../pages/conexion.php';
 
 $ano1 = $_POST['anio1'];
@@ -22,15 +22,19 @@ FROM (
 SELECT 
 MONTH(HE_FECHA) AS MES,
 SUM(CASE WHEN YEAR(HE_FECHA)='".$ano1."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO1,
-SUM(CASE WHEN YEAR(HE_FECHA)='".$ano2."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO2,
-SUM(HE_NETO) AS HE_NETO
+SUM(CASE WHEN YEAR(HE_FECHA)='".$ano2."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO2
 FROM IVBDHEPE 
 WHERE COD_EMPR=1 
 GROUP BY MONTH(HE_FECHA)
 ) X
 ORDER BY 1");
 
+
 $value = $select->fetchAll(PDO::FETCH_ASSOC);
-echo json_encode($value);
+
+    
+    echo json_encode($value);
+
+
 
 ?>

@@ -38,15 +38,22 @@ function getDept() {
 getDept();
 
 function getData() {
+    $("#example").hide();
     const formdate = new FormData();
     formdate.append('date', date.value);
     formdate.append('DateValue', fecha);
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
+   
     contenido.textContent = '';
     $("#charge1").show();
+<<<<<<< HEAD
     $("#Consultar").prop('disabled', true);
     $('#example').DataTable().clear().destroy();
+=======
+    $("#Consultar").prop('disabled',true);
+        $('#example').DataTable().clear().destroy();
+>>>>>>> 51c84df23c735caeb1d812360e09107cad01db0c
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
             body: formdate
@@ -55,18 +62,22 @@ function getData() {
         .then(function refill(data) {
             if (data != 0) {
                 for (dat of data) {
-                    contenido.innerHTML += '<tr><td>' + dat.ar_codigo + '</td>' +
-                        '<td>' + dat.ar_descri + '</td>' +
-                        '<td>' + dat.CANTIDAD + '</td>' +
-                        '<td>' + dat.TOTAL + '</td>' +
+                    contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
+                        '<td>' + dat.ar_codigo + '</td>' +
+                        '<td>' + currency(dat.CANTIDAD,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(dat.TOTAL,{pattern: `# `}).format() + '</td>' +
 
                         '</tr>'
                 }
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
+<<<<<<< HEAD
                 $('#example').DataTable({
 
                     "paging": false,
+=======
+                $('#example').DataTable({                             
+>>>>>>> 51c84df23c735caeb1d812360e09107cad01db0c
                     "ordering": false,
                     "info": false,
                     "searching": false
@@ -79,6 +90,7 @@ function getData() {
                     buttons: false,
                     timer: 800
                 });
+                $("#example").hide();
                 $("#charge1").hide();
                 $("#Consultar").prop('disabled', false)
             }
@@ -108,10 +120,10 @@ function getDataX() {
                     contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                         '<td>' + dat.ar_codigo + '</td>' +
                         '<td>' + dat.cantidadRest + '</td>' +
-                        '<td>' + dat.cantidadDel + '</td>' +
-                        '<td>' + currency(dat.TotalRest).format() + '</td>' +
-                        '<td>' + currency(dat.totalDel).format() + '</td>' +
-                        '<td>' + currency((parseFloat(dat.TotalRest) + parseFloat(dat.totalDel))).format() + '</td>' +
+                        '<td>' + currency(dat.cantidadDel,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(dat.TotalRest,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(dat.totalDel,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(parseFloat(dat.TotalRest) + parseFloat(dat.totalDel)).format() + '</td>' +
                         '</tr>'
 
                 }

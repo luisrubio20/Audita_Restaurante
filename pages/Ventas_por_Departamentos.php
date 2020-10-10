@@ -1,5 +1,4 @@
 <?php require 'conexion.php'; require 'header.php'; ?>
-    
 <br>
 <style>
     .select2-container--default .select2-selection--single {
@@ -15,7 +14,7 @@
      
         <input type="text" class="form-control year" id="fecha1" value="<?= date("m/d/Y"); ?>"  readonly=»readonly>
     </div>
-        <button type="button" id="Consultar" class="btn btn-success" onclick="getDataX();"   margin-bottom:30px;">Consultar<span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
+        <button type="button" id="Consultar" class="btn btn-success" onclick="getDataX();"   margin-bottom:30px;">Consultar    <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
 </form>
 
 <div class="box box-primary">

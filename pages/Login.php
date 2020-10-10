@@ -91,7 +91,7 @@
   <div class="login-box-body">
     <div id="login_form">
     <p class="login-box-msg">Inicio de sesion</p>
-    <form action="../proccess/AuthProcess.php" method="post">
+    <form action="../proccess/AuthProcess.php" method="post" enctype="multipart/form-data" target="_blank">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name='usuario' placeholder="Usuario">
         <span class=" form-control-feedback"><i class="fas fa-envelope"></i> </span>
@@ -103,7 +103,7 @@
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar <i class="fa  fa-arrow-right"></i> </button><br>
+          <button type="submit" id="init" class="btn btn-primary btn-block btn-flat">Entrar <i class="fa  fa-arrow-right"></i> </button><br>
       <!--    <a href="config_form.php" id="config" class="btn btn-default btn-block">Configuracion <i class="fa fa-gear"></i></a> -->
           <?php if(isset($_GET['auth']) && $_GET['auth'] == 'failed'): ?> 
           <hr>
@@ -132,10 +132,11 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="../Funciones/bootstrap.min.js"></script>
 <script>
+btn = document.getElementById('init');
 
-
-
-
+btn.addEventListener('click', ()=>{
+    window.close();
+})
 </script>
 </body>
 </html>

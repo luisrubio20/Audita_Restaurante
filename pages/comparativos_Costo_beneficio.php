@@ -2,7 +2,12 @@
     require 'conexion.php';
     require 'header.php';
 ?>
+<style>
+      #charge1{
 
+        display: none;
+    }
+</style>
 <br>
 
 <form class="form-inline" >
@@ -13,8 +18,8 @@
             <span class="glyphicon glyphicon-th"></span>
         </div>
     </div>
-    <button type="button" id="comparar" class="btn btn-success consultar">Consultar <span id="charge2"></i></span></button>&nbsp;&nbsp;
-    <div id="content"></div>&nbsp; 
+    <button type="button" id="comparar" class="btn btn-success consultar">Consultar  <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>&nbsp;&nbsp;
+   &nbsp; 
 </form>
 
 
