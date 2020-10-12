@@ -44,16 +44,11 @@ function getData() {
     formdate.append('DateValue', fecha);
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
-   
+    var total = 0;
     contenido.textContent = '';
     $("#charge1").show();
-<<<<<<< HEAD
     $("#Consultar").prop('disabled', true);
     $('#example').DataTable().clear().destroy();
-=======
-    $("#Consultar").prop('disabled',true);
-        $('#example').DataTable().clear().destroy();
->>>>>>> 51c84df23c735caeb1d812360e09107cad01db0c
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
             body: formdate
@@ -62,29 +57,23 @@ function getData() {
         .then(function refill(data) {
             if (data != 0) {
                 for (dat of data) {
+                    total += parseFloat(dat.TOTAL);
                     contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                         '<td>' + dat.ar_codigo + '</td>' +
-                        '<td>' + currency(dat.CANTIDAD,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.TOTAL,{pattern: `# `}).format() + '</td>' +
-
+                        '<td>' + currency(dat.CANTIDAD, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.TOTAL, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.PRECIO, { pattern: `# ` }).format() + '</td>' +
                         '</tr>'
                 }
+                document.getElementById('pie').innerHTML += currency(total, { pattern: `# ` }).format();
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
-<<<<<<< HEAD
                 $('#example').DataTable({
-
-                    "paging": false,
-=======
-                $('#example').DataTable({                             
->>>>>>> 51c84df23c735caeb1d812360e09107cad01db0c
-                    "ordering": false,
-                    "info": false,
                     "searching": false
                 });
-                $("#charge1").hide();
-                $("#Consultar").prop('disabled', false)
 
+                $("#Consultar").prop('disabled', false)
+                $("#charge1").hide();
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
@@ -120,13 +109,14 @@ function getDataX() {
                     contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                         '<td>' + dat.ar_codigo + '</td>' +
                         '<td>' + dat.cantidadRest + '</td>' +
-                        '<td>' + currency(dat.cantidadDel,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.TotalRest,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.totalDel,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(dat.cantidadDel, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.TotalRest, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.totalDel, { pattern: `# ` }).format() + '</td>' +
                         '<td>' + currency(parseFloat(dat.TotalRest) + parseFloat(dat.totalDel)).format() + '</td>' +
                         '</tr>'
 
                 }
+
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                 $('#example').DataTable({

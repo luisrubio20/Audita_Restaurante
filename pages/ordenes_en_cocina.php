@@ -2,6 +2,12 @@
     require 'conexion.php';
     require 'header.php';
 ?>
+<style>
+td {
+    border-bottom: 1px solid #000 !important;
+ }  
+</style>
+
 <link rel="stylesheet" href="../Css/tablaheader.css">
 <br>
 <div class="box box-primary">
@@ -14,8 +20,8 @@
 </form>
     <div class="box-body">
         <div class="contents">
-            <table class="table " id="myTable">
-                <thead class="thead-dark" >
+            <table class="table " id="myTable" border="1px">
+                <thead class="thead-dark" >                  
                         <th>Secuencia</th>
                         <th>Orden</th>
                         <th>Fecha / Hora</th>

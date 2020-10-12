@@ -47,7 +47,7 @@
                 <option value='mes'>mes</option>
                 <option value='año'>año</option>
             </select>
- </div>
+        </div>
         <div class="form-group"   >
             <label for="">Departamento: </label><br>
             <select name="depto" id="dept" class="form-control">
@@ -66,10 +66,18 @@
                 <th>Codigo</th>
                 <th>Cantidad General</th>
                 <th>Total General</th>
+                <th>Precio</th>
             </thead>
             <tbody id="contenido" style="font-weight: normal;">
-
+         
             </tbody>
+            <tfoot>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Total</th>
+                <th id="pie"></th>
+            </tfoot>    
         </table>
 </div>
 <?php  require 'footer.php'; ?>

@@ -152,7 +152,7 @@ if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
             <li class="active"><a href="Mesas_abiertas.php"><i class="fa fa-circle-o"></i>Mesas Abiertas</a></li>
             <li class="active"><a href="ordenes_en_cocina.php"><i class="fa fa-cutlery"></i>Ordenes en Cocina</a></li>
             <li class="active"><a href="comparativos_Costo_beneficio.php"><i class="fa fa-circle-o"></i>Comparativa Costo Beneficio</a></li>
-            <li class="active"><a href="Reporte.php"><i class="fa fa-circle-o"></i>Reporte de Ventas</a></li>
+            <li class="active"><a href="Reporte.php"><i class="fa fa-circle-o"></i>Comparativo Entre Periodos</a></li>
             <li class="active"><a href="venta_por_categorias.php"><i class="fa fa-circle-o"></i>Ventas por Categorias</a></li>
             <li class="active"><a href="Ventas_Articulos.php"><i class="fa fa-circle-o"></i>Ventas por Articulos</a></li>
             <li class="active"><a href="ventas_horas.php"><i class="fa fa-circle-o"></i>Ventas por Horas</a></li>

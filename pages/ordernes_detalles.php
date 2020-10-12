@@ -24,6 +24,7 @@
 $query = $pdo->query($select);
 $datos = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <div class="modal-header">
        <h2>Detalle(s) De Factura</h2>
        
@@ -47,12 +48,6 @@ $datos = $query->fetchAll(PDO::FETCH_ASSOC);
             <td><?=  $datos[0]['mo_descri'] ?></td>
                 </tr>
         </tbody>
-        <tfoot> 
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tfoot> 
     </table>
 
    

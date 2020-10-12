@@ -45,17 +45,18 @@ $mes = date('m',strtotime($fec2));
         }
 
     $select = "SELECT  a.ar_codigo   
-            ,SUM(A.DE_CANTID)CANTIDAD
-            ,SUM(A.DE_PRECIO*(A.DE_CANTID))TOTAL
-            ,ISNULL(b.de_codigo,'')de_codigo,ISNULL(b.ar_descri,'')ar_descri,ISNULL(c.ar_descri,'')departa
-            ,ISNULL(b.ma_codigo,'')ma_codigo,ISNULL(d.ar_descri,'')categoria
-        FROM ivbddepe as a 
-            left join ivbdarti as b on a.ar_codigo=b.ar_codigo
-            left join ivbddept as c on b.De_codigo=c.de_codigo
-            left join ivbdmarc as d on b.ma_codigo=d.ma_codigo
-        $CONDICION
-        GROUP BY a.ar_codigo,b.de_codigo,b.ar_descri,c.ar_descri,b.ma_codigo,d.ar_descri
-        order by b.ma_codigo,b.de_codigo,SUM(a.DE_CANTID)";
+    ,SUM(A.DE_CANTID)CANTIDAD
+    ,SUM(A.DE_PRECIO)PRECIO
+    ,SUM(A.DE_PRECIO*(A.DE_CANTID))TOTAL
+    ,ISNULL(b.de_codigo,'')de_codigo,ISNULL(b.ar_descri,'')ar_descri,ISNULL(c.ar_descri,'')departa
+    ,ISNULL(b.ma_codigo,'')ma_codigo,ISNULL(d.ar_descri,'')categoria
+FROM ivbddepe as a 
+    left join ivbdarti as b on a.ar_codigo=b.ar_codigo
+    left join ivbddept as c on b.De_codigo=c.de_codigo
+    left join ivbdmarc as d on b.ma_codigo=d.ma_codigo
+    $CONDICION
+GROUP BY a.ar_codigo,b.de_codigo,b.ar_descri,c.ar_descri,b.ma_codigo,d.ar_descri
+order by b.ma_codigo,b.de_codigo,SUM(a.DE_CANTID)";
          
     $query = $pdo->query($select);
     $datos = $query->fetchAll(PDO::FETCH_ASSOC);
