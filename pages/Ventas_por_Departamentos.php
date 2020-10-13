@@ -8,6 +8,7 @@
 
         display: none;
     }
+    table.dataTable thead tr th {background-color:#212529 !important; color: #fff !important ;}
 </style>
 <form class="form-inline">   <label for="">Fecha:</label>
     <div class="input-group date col-md-3" style="width: 50%;">

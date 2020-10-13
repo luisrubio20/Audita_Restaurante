@@ -42,6 +42,7 @@ if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.jqueryui.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.jqueryui.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
 
 
   <style>
@@ -152,7 +153,7 @@ if(!isset($_SESSION['login']) && $_SESSION['login'] == false){
             <li class="active"><a href="Mesas_abiertas.php"><i class="fa fa-circle-o"></i>Mesas Abiertas</a></li>
             <li class="active"><a href="ordenes_en_cocina.php"><i class="fa fa-cutlery"></i>Ordenes en Cocina</a></li>
             <li class="active"><a href="comparativos_Costo_beneficio.php"><i class="fa fa-circle-o"></i>Comparativa Costo Beneficio</a></li>
-            <li class="active"><a href="Reporte.php"><i class="fa fa-circle-o"></i>Reporte de Ventas</a></li>
+            <li class="active"><a href="Reporte.php"><i class="fa fa-circle-o"></i>Comparativo Entre Periodos</a></li>
             <li class="active"><a href="venta_por_categorias.php"><i class="fa fa-circle-o"></i>Ventas por Categorias</a></li>
             <li class="active"><a href="Ventas_Articulos.php"><i class="fa fa-circle-o"></i>Ventas por Articulos</a></li>
             <li class="active"><a href="ventas_horas.php"><i class="fa fa-circle-o"></i>Ventas por Horas</a></li>

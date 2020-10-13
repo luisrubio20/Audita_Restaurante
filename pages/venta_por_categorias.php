@@ -8,6 +8,7 @@
 
         display: none;
     }
+    table.dataTable thead tr th {background-color:#212529 !important; color: #fff !important ;}
 </style>
 
 <form class="form-inline">   <label for="">Fecha:</label>
@@ -47,7 +48,7 @@
                 <option value='mes'>mes</option>
                 <option value='año'>año</option>
             </select>
- </div>
+        </div>
         <div class="form-group"   >
             <label for="">Departamento: </label><br>
             <select name="depto" id="dept" class="form-control">
@@ -62,15 +63,17 @@
 <div class="box-body">
     <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
-                 <th>Descripcion</th>
+                <th>Descripcion</th>
                 <th>Codigo</th>
+                <th>Precio</th>
                 <th>Cantidad General</th>
                 <th>Total General</th>
             </thead>
+ 
             <tbody id="contenido" style="font-weight: normal;">
-
-            </tbody>
+</tbody> 
         </table>
+      
 </div>
 <?php  require 'footer.php'; ?>
 <script src="../controllers/VentasXCategorias.js"></script>

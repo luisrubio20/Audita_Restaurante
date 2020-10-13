@@ -1,8 +1,7 @@
 .control-sidebar-bg, .control-sidebar {
-    width: 50% !important;
+    width:50% !important;
     right: -50%;
     padding:60px 10px 0px;
-    /*padding-right: 15.3%;*/
   }
 
  .sidebar-menu, .main-sidebar .user-panel, .sidebar-menu>li.header {
@@ -19,7 +18,13 @@
     height: 70px !important;
   }
 
-
+#Volver{
+    position: fixed;
+    right: 6px;
+    bottom: 6px;
+    width: 49%;
+    z-index: 3;
+}
 
 @media (max-width: 580px) and (min-width:1px){
     .control-sidebar-bg, .control-sidebar {
@@ -34,9 +39,9 @@
     }
 
     #Volver {
-      width: 102% !important;
+      width: 98% !important;
       right: 4px !important;
-      bottom: 4px !important;
-
+      bottom: 4px !important;;
     }
+
 }   

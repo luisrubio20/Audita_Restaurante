@@ -44,36 +44,55 @@ function getData() {
     formdate.append('DateValue', fecha);
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
-   
+    var totalPrecio = 0;
+    var totalCantidad = 0;
+    var totalGeneral = 0;
     contenido.textContent = '';
     $("#charge1").show();
-    $("#Consultar").prop('disabled',true);
-        $('#example').DataTable().clear().destroy();
+    $("#Consultar").prop('disabled', true);
+    $('#example').DataTable().clear().destroy();
     fetch('../models/select_ventasXcategorias.php', {
             method: 'post',
             body: formdate
         })
         .then(response => response.json())
         .then(function refill(data) {
-            if (data != 0) {
-                for (dat of data) {
-                    contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
-                        '<td>' + dat.ar_codigo + '</td>' +
-                        '<td>' + currency(dat.CANTIDAD,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.TOTAL,{pattern: `# `}).format() + '</td>' +
+                if (data != 0) {
+                    for (dat of data) {
+                        totalPrecio += parseFloat(dat.PRECIO);
+                        totalCantidad += parseFloat(dat.CANTIDAD);
+                        totalGeneral += parseFloat(dat.TOTAL);
 
-                        '</tr>'
-                }
-                document.getElementById('example').style.cssText = 'width:100%; display: box;'
+                        contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
+                            '<td>' + dat.ar_codigo + '</td>' +
+                            '<td>' + currency(dat.PRECIO, { pattern: `# ` }).format() + '</td>' +
+                            '<td>' + currency(dat.CANTIDAD, { pattern: `# ` }).format() + '</td>' +
+                            '<td>' + currency(dat.TOTAL, { pattern: `# ` }).format() + '</td>' +
+                            '</tr>'
+                    }
 
-                $('#example').DataTable({                             
-                    "ordering": false,
-                    "info": false,
-                    "searching": false
+                    document.getElementById('example').style.cssText = 'width:100%; display: box;'
+
+                    contenido.innerHTML += `
+                    <tr>
+                    <th>TOTALES</th>
+                    <td></td>
+                    <td>${currency(totalPrecio, { pattern: `# ` }).format()}</td>
+                    <td>${currency(totalCantidad, { pattern: `# ` }).format()}</td>
+                    <td>${currency(totalGeneral, { pattern: `# ` }).format()}</td>
+                    </tr>
+                    `;
+
+
+                $('#example').DataTable({
+                    "searching": false,
+                    "responsive": true,
+                    "order": [[ 2, "desc" ]]
+                    
                 });
+
+                $("#Consultar").prop('disabled', false)
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
-                
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
@@ -81,7 +100,7 @@ function getData() {
                 });
                 $("#example").hide();
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
+                $("#Consultar").prop('disabled', false)
             }
         });
 }
@@ -94,6 +113,9 @@ function getDataX() {
     formdate.append('dept', dept.value);
     formdate.append('filtro', filtro.value);
     contenido.textContent = '';
+    var totalPrecio = 0;
+    var totalCantidad = 0;
+    var totalGeneral = 0;
     $("#charge1").show();
     $("#Consultar").prop('disabled', true);
     $('#example').DataTable().clear().destroy();
@@ -106,23 +128,38 @@ function getDataX() {
 
             if (data != 0) {
                 for (dat of data) {
+                    totalPrecio += parseFloat(dat.TotalRest);
+                    totalCantidad += parseFloat(dat.totalDel);
+                    totalGeneral += (parseFloat(dat.TotalRest)+ parseFloat(dat.totalDel));
                     contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                         '<td>' + dat.ar_codigo + '</td>' +
                         '<td>' + dat.cantidadRest + '</td>' +
-                        '<td>' + currency(dat.cantidadDel,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.TotalRest,{pattern: `# `}).format() + '</td>' +
-                        '<td>' + currency(dat.totalDel,{pattern: `# `}).format() + '</td>' +
+                        '<td>' + currency(dat.cantidadDel, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.TotalRest, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.totalDel, { pattern: `# ` }).format() + '</td>' +
                         '<td>' + currency(parseFloat(dat.TotalRest) + parseFloat(dat.totalDel)).format() + '</td>' +
                         '</tr>'
 
                 }
+
                 document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
+                contenido.innerHTML += `
+                <tr>
+                <th>TOTALES</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>${currency(totalPrecio, { pattern: `# ` }).format()}</td>
+                <td>${currency(totalCantidad, { pattern: `# ` }).format()}</td>
+                <td>${currency(totalGeneral, { pattern: `# ` }).format()}</td>
+                </tr>
+                `;
+                
                 $('#example').DataTable({
-                    "destroy":true,
-                    "ordering": false,
-                    "info": false,
-                    "searching": false
+                    "searching": false,
+                    "responsive": true,
+                    "order": [[ 6, "desc" ]]
                 });
                 $("#charge1").hide();
                 $("#Consultar").prop('disabled', false)
@@ -133,7 +170,7 @@ function getDataX() {
                     timer: 800
                 });
                 $("#charge1").hide();
-                $("#Consultar").prop('disabled',false)
+                $("#Consultar").prop('disabled', false)
             }
         });
 }

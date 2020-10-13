@@ -47,13 +47,13 @@ function getReport() {
                 var diff3 = data[0].HE_NETO_F4 - data[0].HE_NETO_I;
 
 
-                monto1.innerHTML = '<strong>' + dateString(fecha.value) + '<br> <h4>' + currency(data[0].HE_NETO_I).format(); + ' </h4></strong>'
-                monto2.innerHTML = '<strong>' + dateString(fecha2.value) + '<br> <h4>' + currency(data[0].HE_NETO_F).format(); + ' </h4></strong>'
-                monto3.innerHTML = '<strong>' + dateString(fecha3.value) + '<br> <h4>' + currency(data[0].HE_NETO_FS).format(); + ' </h4></strong>'
-                monto4.innerHTML = '<strong>' + dateString(fecha4.value) + '<br> <h4>' + currency(data[0].HE_NETO_F4).format(); + '</h4></strong>'
-                difff1.innerHTML = '<strong>Diferencia del Dia anterior: <br><h4>' + currency(diff).format(); + '</h4></strong>';
-                difff2.innerHTML = '<strong>Diferencia del semana anterior: <br><h4>' + currency(diff2).format(); + '</h4></strong>';
-                difff3.innerHTML = '<strong>Diferencia del año anterior: <br><h4>' + currency(diff3).format(); + '</h4></strong>';
+                monto1.innerHTML = '<strong> <h4 style="font-weight: bold;">' + 'Actual' + '</h4> </strong> <h5>' + currency(data[0].HE_NETO_I).format(); + ' </h5><br>'
+                monto2.innerHTML = '<strong> <h4 style="font-weight: bold;">' + 'Ayer' + '</h4></strong> <h5>' + currency(data[0].HE_NETO_F).format(); + ' </h5><br>'
+                monto3.innerHTML = '<strong> <h4 style="font-weight: bold;">' + 'Hace una semana' + '</h4></strong> <h5>' + currency(data[0].HE_NETO_FS).format(); + ' </h5><br>'
+                monto4.innerHTML = '<strong> <h4 style="font-weight: bold;">' + 'hace un año' + '</h4> </strong><h5>' + currency(data[0].HE_NETO_F4).format(); + '</h5><br>'
+                difff1.innerHTML = '<strong> <h4 style="font-weight: bold;">Diferencia del Dia anterior: </h4> </strong><h5>' + currency(diff).format(); + '</h5> <br>';
+                difff2.innerHTML = '<strong> <h4 style="font-weight: bold;">Diferencia del semana anterior: </h4> </strong><h5>' + currency(diff2).format(); + '</h5><br>';
+                difff3.innerHTML = '<strong> <h4 style="font-weight: bold;">Diferencia del año anterior: </h4></strong><h5>' + currency(diff3).format(); + '</h5>';
             } else {
                 swal("Error!!", "No hay Datos en esta Fecha", "error", {
                     buttons: false,
