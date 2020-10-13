@@ -8,6 +8,7 @@
 
         display: none;
     }
+    table.dataTable thead tr th {background-color:#212529 !important; color: #fff !important ;}
 </style>
 
 <form class="form-inline">   <label for="">Fecha:</label>
@@ -62,23 +63,17 @@
 <div class="box-body">
     <table id="example" class="display responsive nowrap" style="width:100%; display: none; font-weight: normal !important;">
             <thead class="thead-dark" >
-                 <th>Descripcion</th>
+                <th>Descripcion</th>
                 <th>Codigo</th>
+                <th>Precio</th>
                 <th>Cantidad General</th>
                 <th>Total General</th>
-                <th>Precio</th>
             </thead>
+ 
             <tbody id="contenido" style="font-weight: normal;">
-         
-            </tbody>
-            <tfoot>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Total</th>
-                <th id="pie"></th>
-            </tfoot>    
+</tbody> 
         </table>
+      
 </div>
 <?php  require 'footer.php'; ?>
 <script src="../controllers/VentasXCategorias.js"></script>
