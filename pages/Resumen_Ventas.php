@@ -2,51 +2,36 @@
 require 'conexion.php';
 require './header.php';
  $ano_actual = date("Y");
- $ano_anterior = date("Y",strtotime($ano_actual."- 1 year"));
+ $ano2 = date("Y",strtotime($ano_actual."- 1 year"));
+ $ano3 = date("Y",strtotime($ano_actual."- 2 year"));
 ?>
 <style>
- 
     #charge1{
-
         display: none;
     }
 </style>
 <br>
-<br>
- 
 
+<div class="box-header with-border"> 
+<h3 class="t-cuadre">Ventas Comparativo entre años</h3>
+</div>
 <div class="box box-primary">
-    <form class="form-inline" >
-    <div class="box-header with-border"> 
-    <h3 class="t-cuadre">Resumen De Ventas</h3>
-    </div>
-    <div id="VentasA"></div>
-    </form>
     <div class="box-body">
     <div class="form-group">
-
         <label for="exampleInputName2">Fecha 1: </label>
         <input type="text" class="form-control year"  id="anio1" readonly="readonly" value="<?= $ano_actual?>">
         </div>
-        <div class="form-group">
-        <label for="exampleInputEmail2">Fecha 2: </label>
-        <input type="text" class="form-control year" id="anio2" readonly="readonly"  value="<?= $ano_anterior?>">
-        </div>
-        <button type="button" id="buscar" class="btn btn-success consultar">Consultar  <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
+          <button type="button" id="buscar" class="btn btn-success consultar">Consultar  <span id="charge1"><i class="fa fa-circle-o-notch fa-spin"></i></span></button>
+        <input type="text" id="ano2" style="display: none;" value="<?= $ano2?>">
+        <input type="text" id="ano3" style="display: none;" value="<?= $ano3?>">
 
-
-<br>
-<br>
+            <br>
+            <br>
  
         <div  id="grafica"> </div>
-
      
 </div>
 </div>
-
-
-
-
 
 <?php require 'footer.php';?>
 
@@ -67,18 +52,17 @@ $(document).ready(function(){
     orientation: 'bottom auto'
   }); 
     
-
-
    $('#buscar').click(function(){
 
         $("#buscar").prop('disabled',true);
         $("#charge1").show();
         $("#grafica").empty();
     var anio1 = $("#anio1").val();
-    var anio2 = $("#anio2").val();
-    var  datos = "anio1=" +  anio1 + "&anio2=" + anio2; 
+    var anio2 = $("#ano2").val();
+    var anio3 = $("#ano3").val();
 
-    
+    var datos = "anio1=" +  anio1 + "&anio2=" + anio2 + "&anio=" + anio3; 
+
     $.ajax({
             type:'post',
             url: "../models/select_comparativo_x_ano.php",
@@ -95,8 +79,6 @@ $(document).ready(function(){
                 columna1 += parseFloat(valor2.HE_NETO1);
                 columna2 += parseFloat(valor2.HE_NETO2);
               }
-
-              
 
             if(columna1 == 0 && columna2 == 0)
              {
@@ -115,9 +97,9 @@ $(document).ready(function(){
                         element: 'grafica',
                         data: result,
                         xkey: 'MESL',
-                        ykeys: ['HE_NETO1','HE_NETO2'],
-                        labels: [anio1,anio2],
-                        barColors: ['#006d19','blue'],
+                        ykeys: ['HE_NETO1','HE_NETO2','HE_NETO3'],
+                        labels: [anio1,anio2,anio3],
+                     //   barColors: ['#1E8449','#105BC1','#CA6F1E'],
                         }).on('click', function(i, row){
                         console.log(i, row);
                         });
@@ -125,18 +107,9 @@ $(document).ready(function(){
                       } 
                       $("#charge1").hide();
                         $("#buscar").prop('disabled', false);
-
-
-
-           
           }
     }); //termina ajax
-   
-    
-    
-
-  }); // termina click
-  
+  }); // termina click 
 });//ready finish
 </script>
 

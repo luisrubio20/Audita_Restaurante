@@ -17,6 +17,8 @@ $fecha_actual = date("m/d/Y");
 
         display: none;
     }
+  table.dataTable thead tr th {background-color:#212529 !important; color: #fff !important ;}
+
 </style>
 
 
@@ -119,6 +121,10 @@ $fecha_actual = date("m/d/Y");
 <script type="text/javascript">
 
     $(document).ready(function() {
+
+      
+
+
         $('#fecha').datepicker({
             format: 'dd/mm/yyyy',
         }); //termina datapicker
@@ -176,23 +182,46 @@ $fecha_actual = date("m/d/Y");
                               buttons: false,
                                timer: 800
                             });
-                         $("#charge1").hide();
+                        $("#charge1").hide();
                         $("#buscar").prop('disabled', false);
                         $("#example").hide();
                         }
                         else
                         {
-
-                     
-
+                        var total = 0;
+                        var totalgeneral =0;
+                        var totalRestaurante = 0;
+                        var totalDelivery = 0;
+                        var articulosRestaurante =0;
+                        var articulosDelivery =0;
 
                      for(let valor2 of valor)
                      {
-                        var total = parseFloat(valor2.VALOR3) + parseFloat(valor2.VALOR3DL);
-                                   contenido.innerHTML +=`
+                         total = parseFloat(valor2.VALOR3) + parseFloat(valor2.VALOR3DL);
+                         totalgeneral += total;
+                         totalRestaurante += parseFloat(valor2.VALOR3);
+                         totalDelivery += parseFloat(valor2.VALOR3DL);
+                         articulosRestaurante += parseFloat(valor2.VALOR1);
+                         articulosDelivery += parseFloat(valor2.VALOR1DL);
+
+                    }
+                               contenido.innerHTML +=`
+                               <tr>
+                               <th>TOTALES</th>
+                               <th></th>
+                               <th>${currency(articulosRestaurante,{pattern: `# `}).format()}</th>
+                               <th>${currency( articulosDelivery,{pattern: `# `}).format()}</th>
+                               <th>${currency(totalRestaurante,{pattern: `# `}).format()}</th>
+                               <th>${currency(totalDelivery,{pattern: `# `}).format()}</th>
+                               <th>${currency(totalgeneral,{pattern: `# `}).format()}</th>                       
+                               </tr>
+                               `;
+                               for(let valor2 of valor)
+                              {
+                                    contenido.innerHTML +=`
 
                                <tr>
-                               <td>${valor2.ar_descri.trim()}</td>
+                               <td>${valor2.ar_descri}</td>
                                <td>${valor2.ar_codigo}</td>
                                <td>${currency(valor2.VALOR1,{pattern: `# `}).format()}</td>
                                <td>${currency(valor2.VALOR1DL,{pattern: `# `}).format()}</td>
@@ -202,15 +231,23 @@ $fecha_actual = date("m/d/Y");
                          
                                </tr>
                                    `
-                               }       
+                               }
+
                                document.getElementById('example').style.cssText = 'width:100%; display: box;'
 
                         $('#example').DataTable({
+                            "columnDefs": [{
+                            "targets": [1,2,3],
+                            "orderable": false
+                           }], 
+
                             "destroy":true,
                             "ordering": false,
                             "info": false,
                             "searching": false
-                        });
+                            });
+                          
+
 
                         $("#charge1").hide();
                         $("#buscar").prop('disabled', false);

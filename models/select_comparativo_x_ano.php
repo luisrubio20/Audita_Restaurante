@@ -2,8 +2,10 @@
 ini_set('max_execution_time', 300); 
 require '../pages/conexion.php';
 
-$ano1 = $_POST['anio1'];
-$ano2 = $_POST['anio2'];
+$ano1 = $_POST['anio1']="2019";
+$ano2 = $_POST['anio2']="2018";
+$ano3 = $_POST['anio3']="2017";
+
 
 $select = $pdo->query("SELECT *,
 CASE WHEN MES = 1 THEN 'Enero'
@@ -22,7 +24,8 @@ FROM (
 SELECT 
 MONTH(HE_FECHA) AS MES,
 SUM(CASE WHEN YEAR(HE_FECHA)='".$ano1."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO1,
-SUM(CASE WHEN YEAR(HE_FECHA)='".$ano2."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO2
+SUM(CASE WHEN YEAR(HE_FECHA)='".$ano2."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO2,
+SUM(CASE WHEN YEAR(HE_FECHA)='".$ano3."' THEN HE_NETO ELSE 0000000000.00 END) AS HE_NETO3
 FROM IVBDHEPE 
 WHERE COD_EMPR=1 
 GROUP BY MONTH(HE_FECHA)
