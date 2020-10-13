@@ -22,7 +22,7 @@ td {
 </select>
 </div>
 <br>
-<div>
+<div  class="col-md-2">
     <button id="btn" class="btn btn-success">Buscar</button>
 </div>
     <div class="box-body">
