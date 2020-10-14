@@ -65,9 +65,15 @@ function getData() {
 
                         contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                             '<td>' + dat.ar_codigo + '</td>' +
-                            '<td>' + currency(dat.PRECIO, { pattern: `# ` }).format() + '</td>' +
-                            '<td>' + currency(dat.CANTIDAD, { pattern: `# ` }).format() + '</td>' +
-                            '<td>' + currency(dat.TOTAL, { pattern: `# ` }).format() + '</td>' +
+                            '<td>' + currency(dat.PRECIO, {
+                                pattern: `# `
+                            }).format() + '</td>' +
+                            '<td>' + currency(dat.CANTIDAD, {
+                                pattern: `# `
+                            }).format() + '</td>' +
+                            '<td>' + currency(dat.TOTAL, {
+                                pattern: `# `
+                            }).format() + '</td>' +
                             '</tr>'
                     }
 
@@ -87,8 +93,10 @@ function getData() {
                 $('#example').DataTable({
                     "searching": false,
                     "responsive": true,
-                    "order": [[ 2, "desc" ]]
-                    
+                    "order": [
+                        [2, "desc"]
+                    ]
+
                 });
 
                 $("#Consultar").prop('disabled', false)
@@ -130,13 +138,19 @@ function getDataX() {
                 for (dat of data) {
                     totalPrecio += parseFloat(dat.TotalRest);
                     totalCantidad += parseFloat(dat.totalDel);
-                    totalGeneral += (parseFloat(dat.TotalRest)+ parseFloat(dat.totalDel));
+                    totalGeneral += (parseFloat(dat.TotalRest) + parseFloat(dat.totalDel));
                     contenido.innerHTML += '<tr><td>' + dat.ar_descri + '</td>' +
                         '<td>' + dat.ar_codigo + '</td>' +
                         '<td>' + dat.cantidadRest + '</td>' +
-                        '<td>' + currency(dat.cantidadDel, { pattern: `# ` }).format() + '</td>' +
-                        '<td>' + currency(dat.TotalRest, { pattern: `# ` }).format() + '</td>' +
-                        '<td>' + currency(dat.totalDel, { pattern: `# ` }).format() + '</td>' +
+                        '<td>' + currency(dat.cantidadDel, {
+                            pattern: `# `
+                        }).format() + '</td>' +
+                        '<td>' + currency(dat.TotalRest, {
+                            pattern: `# `
+                        }).format() + '</td>' +
+                        '<td>' + currency(dat.totalDel, {
+                            pattern: `# `
+                        }).format() + '</td>' +
                         '<td>' + currency(parseFloat(dat.TotalRest) + parseFloat(dat.totalDel)).format() + '</td>' +
                         '</tr>'
 
@@ -155,11 +169,13 @@ function getDataX() {
                 <td>${currency(totalGeneral, { pattern: `# ` }).format()}</td>
                 </tr>
                 `;
-                
+
                 $('#example').DataTable({
                     "searching": false,
                     "responsive": true,
-                    "order": [[ 6, "desc" ]]
+                    "order": [
+                        [6, "desc"]
+                    ]
                 });
                 $("#charge1").hide();
                 $("#Consultar").prop('disabled', false)

@@ -7,7 +7,12 @@ function getReport() {
 
     function dateString(date) {
         var event = new Date(date);
-        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
         return (event.toLocaleDateString('es-ES', options));
     }
 
@@ -22,10 +27,22 @@ function getReport() {
             if (fecha2.value.length != 0 && data[0].HE_NETO_I != ".00" || data[0].HE_NETO_F != ".00" || data[0].HE_NETO_FS != ".00" || data[0].HE_NETO_F4 != ".00") {
                 var dataChar = [
 
-                    { fecha: fecha.value, monto: data[0].HE_NETO_I },
-                    { fecha: fecha2.value, monto: data[0].HE_NETO_F },
-                    { fecha: fecha3.value, monto: data[0].HE_NETO_FS },
-                    { fecha: fecha4.value, monto: data[0].HE_NETO_F4 }
+                    {
+                        fecha: fecha.value,
+                        monto: data[0].HE_NETO_I
+                    },
+                    {
+                        fecha: fecha2.value,
+                        monto: data[0].HE_NETO_F
+                    },
+                    {
+                        fecha: fecha3.value,
+                        monto: data[0].HE_NETO_FS
+                    },
+                    {
+                        fecha: fecha4.value,
+                        monto: data[0].HE_NETO_F4
+                    }
                 ]
                 grafica.textContent = '';
 

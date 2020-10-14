@@ -3,8 +3,8 @@ const fecha = document.getElementById('fecha1');
 const grafica = document.getElementById('grafica');
 
 btn.addEventListener('click', () => {
-    $("#comparar").prop('disabled',true);
-     $("#charge1").show();
+    $("#comparar").prop('disabled', true);
+    $("#charge1").show();
     document.cookie = 'fecha=' + fecha.value + '; path=/';
     fetch('../models/select_comparativosCB.PHP')
         .then(response => response.json())
@@ -29,13 +29,13 @@ btn.addEventListener('click', () => {
                     timer: 800
                 });
                 $("#grafica").empty();
-             $("#detalle").hide();
-            $("#comparar").prop('disabled',false);
-            $("#charge1").hide();
+                $("#detalle").hide();
+                $("#comparar").prop('disabled', false);
+                $("#charge1").hide();
 
             }
             $("#detalle").hide();
-            $("#comparar").prop('disabled',false);
+            $("#comparar").prop('disabled', false);
             $("#charge1").hide();
         });
 
