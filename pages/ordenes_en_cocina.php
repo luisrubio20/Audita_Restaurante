@@ -13,7 +13,7 @@ td {
 <div class="box box-primary">
 <div class="box-header with-border">
         <h3 class="t-cuadre">Ordenes En Cocina</h3>
-            </div>
+</div>
 
 <div>
    <label for="">Camarero</label>

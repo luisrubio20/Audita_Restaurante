@@ -17,9 +17,6 @@ if(isset($_GET['detalle']))
    exit();
 }
 
-
-
-
 $select = $pdo->query("SELECT he_fecha,he_factura,he_nombre,ma_codigo,mo_codigo,he_monto,he_itbis,he_totley,he_neto,he_caja,he_turno FROM ivbdhete WHERE he_tipfac=''");
 $value = $select->fetchAll(PDO::FETCH_ASSOC);
  
@@ -29,8 +26,12 @@ $totaltoley=0;
 $totalneto=0; 
 require './header.php';
 ?>
-
   
+  <style>
+td {
+    border-bottom: 1px solid #000 !important;
+ }  
+</style>
 
 
 <link rel="stylesheet" href="../Css/tablaheader.css">
@@ -41,6 +42,7 @@ require './header.php';
     <div class="box-header with-border"> 
     <h3 class="t-cuadre">Mesas Abiertas </h3>
     </div>
+    
     <div class="box box-primary">
  
     <div class="box-body">
@@ -190,7 +192,8 @@ $(document).ready(function(){
      <!--- header de modal -->
               
               <br>
-              <table class="table table-striped">
+              <div class="table-responsive bg-w p-3">
+              <table class="table">
                             <thead class="thead-dark">
                                 <th>Cant.</th>
                                 <th>Descrip.</th>
@@ -201,6 +204,7 @@ $(document).ready(function(){
                                 ${tr}
                             </tbody>
                             </table>
+                            </div>
                             
                             <br>
                         

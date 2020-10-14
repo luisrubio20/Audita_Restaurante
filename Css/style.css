@@ -48,7 +48,7 @@ form {
 }
 
 .bg-w {
-    background: #fff;
+    background: #fff !important;
 }
 
 #nombre {
