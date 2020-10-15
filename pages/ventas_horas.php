@@ -5,6 +5,7 @@ $fecha_actual= date("m/d/Y");
 require './header.php';
 ?>
 
+
 <br>
 <form class="form-inline" >
      <div class="input-group date col-md-3" style="width:50%;" data-provide="datepicker date">
@@ -53,6 +54,7 @@ require './header.php';
             <tr>
             <td style="font-size: 16px;">Hora </td>
             <td style="font-size: 16px;">Monto</td>
+             <td style="font-size: 16px;">Ver</td>
             </tr>
             </thead>
                 <tbody id="horas"> 
@@ -61,6 +63,7 @@ require './header.php';
                 
                     <td>0.00</td>
                     <td>0.00</td>
+              
                 </tr>
 
                 </tbody>
@@ -94,10 +97,12 @@ require './header.php';
     </div>
 
 
+   <a href="#" id="modal1" style="display:none;" data-toggle="modal" data-target="#myModal">
 
 
 
 <?php require 'footer.php'; ?>
+<script src="../controllers/Ventas_x_horas_detalle.js"></script>
 
     <script type="text/javascript">
 $(document).ready(function(){
@@ -105,32 +110,19 @@ $(document).ready(function(){
     format: 'dd/mm/yyyy',
   }); //termina datapicker
 
-  $("#fecha").keypress(function(e){ 
-       return false;
-       });
-   
-       $("#fecha").keydown(function(e){
-      if (e.keyCode == 8) 
-           {
-       e.preventDefault();
-   
-       }
-   });
-   
+    
    $("#Dias").on('change',function()
   {
     var dias= $("#Dias").val();
 
 
- if(dias == "Hoy")
+if(dias == "Hoy")
 {
   fecha = "<?=date("d/m/Y");?>";
-
 }
 else if(dias == "Ayer")
 {
     fecha = '<?=date("d/m/Y",strtotime($fecha_actual."- 1 days"))?>';
-
 }
 else if(dias == "Antesayer")
 {
@@ -154,8 +146,7 @@ else if(dias == "hace6")
 }
 else if(dias == "hace7")
 {
-    fecha = "<?=date("d/m/Y",strtotime($fecha_actual."- 7 days"))?>";
-   
+    fecha = "<?=date("d/m/Y",strtotime($fecha_actual."- 7 days"))?>"; 
 }
 
   $("#fecha").val(fecha);
@@ -167,9 +158,8 @@ else if(dias == "hace7")
   $("#buscar").on('click',function(){
 
 
-        var fecha1 =  $("#fecha").val();
-        var contenido = document.getElementById("horas");
-
+    var fecha1 =  $("#fecha").val();
+    var contenido = document.getElementById("horas");
     var datos = "fecha=" + fecha1;
     $("#ventas_horas").empty();
     $.ajax({
@@ -186,6 +176,8 @@ else if(dias == "hace7")
           if(valor.length == 0)
                 {
                     swal("Error!!", "No hay Datos en esta Fecha", "error");
+                    $("#horas").empty();
+
                 } 
                 else
                 {
@@ -218,8 +210,9 @@ else if(dias == "hace7")
                 <tr>
                 <td>${valor2.hora}</td>
                 <td style="font-weight:bold;">${currency(valor2.monto,{pattern: `# `}).format()}</td>
-                </tr>
-                    `
+                <td><button id="detalle" onclick="detalle('${valor2.hora_24}')" class="btn btn-info d-print-none detalle"   data-toggle="tooltip" data-placement="top" title="Detalle" ><i class="far fa-eye" ></i></button></td>
+                 </tr>
+                    `;
            
             }
 
@@ -227,16 +220,24 @@ else if(dias == "hace7")
                       <tr>
                     
                        <th>Total</th>
-                       <th> ${currency(total,{pattern: `# `}).format()} </th>
+                       <th>${currency(total,{pattern: `# `}).format()} </th>
+                       
                         </tr>
-                    `                   
+                    `;                  
                 }
-
+                   
         }
 
     });//termina ajax
   });//termina punto click
+
+
 });
   </script>
+
+
+
+ 
+
 
 

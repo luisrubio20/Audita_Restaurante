@@ -17,9 +17,6 @@ if(isset($_GET['detalle']))
    exit();
 }
 
-
-
-
 $select = $pdo->query("SELECT he_fecha,he_factura,he_nombre,ma_codigo,mo_codigo,he_monto,he_itbis,he_totley,he_neto,he_caja,he_turno FROM ivbdhete WHERE he_tipfac=''");
 $value = $select->fetchAll(PDO::FETCH_ASSOC);
  
@@ -38,13 +35,14 @@ require './header.php';
 <br>
 
 
-<div class="box-header with-border">
-  <h3 class="t-cuadre">Mesas Abiertas </h3>
-</div>
-<div class="box box-primary">
-
-  <div class="box-body">
-
+    <div class="box-header with-border"> 
+    <h3 class="t-cuadre">Mesas Abiertas </h3>
+    </div>
+    
+    <div class="box box-primary">
+ 
+    <div class="box-body">
+  
     <div class="contents">
       <table class="table " id="myTable">
         <thead class="thead-dark">
@@ -189,7 +187,8 @@ require './header.php';
      <!--- header de modal -->
               
               <br>
-              <table class="table table-striped">
+              <div class="table-responsive bg-w p-3">
+              <table class="table">
                             <thead class="thead-dark">
                                 <th>Cant.</th>
                                 <th>Descrip.</th>
@@ -200,6 +199,7 @@ require './header.php';
                                 ${tr}
                             </tbody>
                             </table>
+                            </div>
                             
                             <br>
                         
