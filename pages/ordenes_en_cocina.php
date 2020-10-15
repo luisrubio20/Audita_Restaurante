@@ -43,7 +43,6 @@
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <?php require 'footer.php' ?>
 <script src="../controllers/ordernes_en_cocina.js"></script>

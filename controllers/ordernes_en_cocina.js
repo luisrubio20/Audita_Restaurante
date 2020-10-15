@@ -18,7 +18,6 @@ fetch('../models/select_ordenes_cocina.php', {
     })
     .then(response => response.json())
     .then(function refill(data) {
-        console.log(data);
         for (var dat = 0; dat < data.length; dat++) {
             container.innerHTML += '<tr><td>' + data[dat].secuencia + '</td>' +
                 '<td>' + data[dat].orden + '</td>' +
@@ -43,7 +42,6 @@ fetch('../models/select_ordenes_cocina.php', {
     })
     .then(response => response.json())
     .then(function refill(data) {
-        console.log(data);
         for (dat of data) {
             cam.innerHTML += '<option value="' + dat.NOM + '">' + dat.MO_DESCRI + '</option>';
 
@@ -51,7 +49,6 @@ fetch('../models/select_ordenes_cocina.php', {
     });
 
 btn.addEventListener('click', () => {
-    console.log(cam.value);
     contenido.textContent = '';
     var select = new FormData();
     select.append('filtro', cam.value);
@@ -62,7 +59,6 @@ btn.addEventListener('click', () => {
         })
         .then(response => response.json())
         .then(function refill(data) {
-            console.log(data);
             for (var dat = 0; dat < data.length; dat++) {
                 container.innerHTML += '<tr><td>' + data[dat].secuencia + '</td>' +
                     '<td>' + data[dat].orden + '</td>' +

@@ -9,7 +9,7 @@
  if($filtro != 'todos'){filtrar($pdo,$filtro);}
 
     function filtrar($pdo,$filtro){
-            $select = "SELECT TOP 50 RIGHT('0000000000'+RTRIM(LTRIM(HE_SECUENCIA)),10) AS secuencia
+            $select = "SELECT TOP 500 RIGHT('0000000000'+RTRIM(LTRIM(HE_SECUENCIA)),10) AS secuencia
             ,RTRIM(LTRIM(a.HE_FACTURA)) AS orden
             ,RTRIM(CONVERT(CHAR,a.HE_HORA,0)) AS hora
             ,CONVERT(DATE,a.HE_FECHA) as fecha     
