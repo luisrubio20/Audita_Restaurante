@@ -9,7 +9,7 @@
         <center> <h4>Entradas</h4></center>
         <hr>
         <ul id='Entradas'  class="list-group">
-        </ul>
+        </ul><br>
         <center> <h4>Platos Fuertes</h4></center>
         <hr>
         <ul id='Fuerte'  class="list-group">
