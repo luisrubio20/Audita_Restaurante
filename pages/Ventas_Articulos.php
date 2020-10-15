@@ -3,11 +3,8 @@
 require 'conexion.php';
 require 'header.php';
 $fecha_actual = date("m/d/Y");
-
-
 ?>
-<link href="../Dependencias/multiselect4_1_0.css" rel="stylesheet" />
-
+<link href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' rel='stylesheet' type='text/css'>
 
 <style>
     .select2-container--default .select2-selection--single {
@@ -75,15 +72,9 @@ $fecha_actual = date("m/d/Y");
 
 
         <div class="form-group">
-        <label for="">Nombre Articulo</label>
-        <select name="articulos" id="articulos" class="form-control">
-            <?php
-               $select2 = $pdo->query("SELECT top 1000 ar_codigo,ar_descri FROM ivbdarti ");
-                 $value2 = $select2->fetchAll(PDO::FETCH_ASSOC);
-                 foreach ($value2 as $key => $fila) : ?>
-                <option selected value="<?= trim($fila['ar_codigo']); ?>"><?= $fila['ar_descri']; ?></option>
-            <?php endforeach ?>
-            <option selected="selected" value="TODOS">Todos</option>
+        <label for="">Articulo</label>
+        <select id="articulos" class="form-control">
+        <option value='TODOS'>Todos</option>
         </select>
         </div>
 
@@ -116,21 +107,15 @@ $fecha_actual = date("m/d/Y");
 
 
 <?php require 'footer.php'; ?>
-<script src="../Dependencias/multiselect4_1_0.js"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'></script>
 <script type="text/javascript">
 
     $(document).ready(function() {
-
-      
-
 
         $('#fecha').datepicker({
             format: 'dd/mm/yyyy',
         }); //termina datapicker
 
-        $("#articulos").select2({});
-         
 
         $("#Dias").on('change', function() {
             var dias = $("#Dias").val();
@@ -194,28 +179,7 @@ $fecha_actual = date("m/d/Y");
                         var totalDelivery = 0;
                         var articulosRestaurante =0;
                         var articulosDelivery =0;
-
-                     for(let valor2 of valor)
-                     {
-                         total = parseFloat(valor2.VALOR3) + parseFloat(valor2.VALOR3DL);
-                         totalgeneral += total;
-                         totalRestaurante += parseFloat(valor2.VALOR3);
-                         totalDelivery += parseFloat(valor2.VALOR3DL);
-                         articulosRestaurante += parseFloat(valor2.VALOR1);
-                         articulosDelivery += parseFloat(valor2.VALOR1DL);
-
-                    }
-                               contenido.innerHTML +=`
-                               <tr>
-                               <th>TOTALES</th>
-                               <th></th>
-                               <th>${currency(articulosRestaurante,{pattern: `# `}).format()}</th>
-                               <th>${currency( articulosDelivery,{pattern: `# `}).format()}</th>
-                               <th>${currency(totalRestaurante,{pattern: `# `}).format()}</th>
-                               <th>${currency(totalDelivery,{pattern: `# `}).format()}</th>
-                               <th>${currency(totalgeneral,{pattern: `# `}).format()}</th>                       
-                               </tr>
-                               `;
+              
                                for(let valor2 of valor)
                               {
                                     contenido.innerHTML +=`
@@ -262,4 +226,44 @@ $fecha_actual = date("m/d/Y");
            
         }); //termina punto click
     });
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#articulos').select2({
+ ajax: { 
+  url: '../models/select_combo_articulos.php',
+  type: 'POST',
+  dataType: 'json',
+  delay: 250,
+  data: function (params) {
+   return {
+     searchTerm: params.term // search term
+   };
+  },
+  processResults: function (Response) {
+    
+    return {
+        results: $.map(Response, function(obj) {
+            return { id: obj.codigo, text: obj.descripcion };
+        })
+    };
+
+
+  },
+  cache: true
+ }
+});
+
+
+$("#Enviar").on('click',function()
+{
+ var esto =  $("#articulos").val();
+  alert(esto);
+});
+
+
+});   
 </script>
